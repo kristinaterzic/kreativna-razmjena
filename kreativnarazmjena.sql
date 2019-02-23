@@ -1,6 +1,6 @@
 drop database if exists kreativnarazmjena;
 create database kreativnarazmjena character set utf8 collate utf8_general_ci;
-# c:\xampp\mysql\bin\mysql -ukreacija -pkreacija --default_character_set=utf8 < D:\kreativnarazmjena\kreativnarazmjena.sql;
+# c:\xampp\mysql\bin\mysql -ukreacija -pkreacija --default_character_set=utf8 < E:\vhost\polaznik42.edunova.hr\kreativnarazmjena.sql
 use kreativnarazmjena;
 
 create table korisnik(
@@ -10,7 +10,7 @@ datumreg					datetime not null,
 ime 						varchar(50) not null,
 prezime 					varchar(50) not null,
 email 						varchar(100) not null,
-lozinka						varchar(20) not null, 
+lozinka						char(60) not null, 
 telefon 					varchar(20) not null,
 oib 						char(11),
 datumrodenja 				datetime,
@@ -63,9 +63,9 @@ alter table kategorija_oglas add foreign key (oglas) references oglas(sifra);
 
 
 insert into korisnik (sifra,korisnickoime,datumreg,ime,prezime,email,lozinka,telefon, oib,datumrodenja,omeni,profilnaslika) values
-(null,'Pero_pitur','2018-10-02','Petar','Anić','pero.piturZG@gmail.com','pero1234','+385952225555','01234567891','1975-07-10','Pozdrav! Moje ime je Petar, bavim se umjetničkim slikanjem. Najčešća tehnika koju koristim je ulje na platnu.',null),
-(null,'Foto_Ana','2018-10-03','Ana','Simić','foto.ana5@gmail.com','ana1234','+385991116666','55555555555','1988-04-22','Bavim se fotografijom posljednjih 5 godina.',null),
-(null,'Sara-design','2018-10-06','Sara','Sarić','sara.design@gmail.com','sara4321','+385958884444',null,'1989-07-23','Pozdrav, ime mi je Sara i posljednjih 10 godina se bavim grafičkim dizajnom.',null);
+(null,'Pero_pitur','2018-10-02','Petar','Anić','pero.piturZG@gmail.com','$2y$10$HSbXqWns5.PRWg4U.mz.keuej1sMYGvb.WXhuLdMd7ju1cyUg8kE2','+385952225555','01234567891','1975-07-10','Pozdrav! Moje ime je Petar, bavim se umjetničkim slikanjem. Najčešća tehnika koju koristim je ulje na platnu.',null),
+(null,'Foto_Ana','2018-10-03','Ana','Simić','foto.ana5@gmail.com','$2y$10$Vny1RG//8o1NJd/w4PxBMOln/Dra1YApsSSzZDre79toXGm7XE2EO','+385991116666','55555555555','1988-04-22','Bavim se fotografijom posljednjih 5 godina.',null),
+(null,'Sara-design','2018-10-06','Sara','Sarić','sara.design@gmail.com','$2y$10$oSi4G6jx/w1.B7wY0Q3csORPoresOPXYSV363l8/qmkPTPt06LiWK','+385958884444',null,'1989-07-23','Pozdrav, ime mi je Sara i posljednjih 10 godina se bavim grafičkim dizajnom.',null);
 
 insert into kategorija (sifra,naziv,nadredjena) values
 (null,'Fotografija',null),
@@ -85,3 +85,26 @@ insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponu
 
 insert into ocjena (sifra,datumocjene,ocjena,oglas,javljamse_korisnik) values
 (null,'2018-11-15',5,1,2);
+
+create table operater(
+	sifra int not null primary key auto_increment,
+	ime varchar(50) not null,
+	prezime varchar(50) not null,
+	email varchar(100) not null,
+	lozinka char(60) not null
+);
+
+insert into operater (ime,prezime,email,lozinka) values
+(
+	'Kristina',
+	'Terzić',
+	'kristina.terzic01@gmail.com',
+	'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau'
+
+);
+
+
+
+select 'Gotov sam';
+
+

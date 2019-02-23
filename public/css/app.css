@@ -1,0 +1,12 @@
+*{
+    font-family: 'Laila', serif;
+}
+
+h1{
+    font-family: 'laila', serif;
+}
+.large-10.medium-10.small-12.columns>h1{
+    width: 100%;
+    text-align: center;
+}
+
