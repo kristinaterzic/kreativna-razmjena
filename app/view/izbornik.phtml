@@ -19,6 +19,15 @@
                 <li>
                 <a href="<?php echo App::config("url")."kontakt" ?>">Kontakt</a>
                 </li>
+                <?php if(Session::getInstance()->isLogiran()): ?>
+                    <li>
+                        <a href="<?php echo App::config("url")."korisnik/index" ?>">Korisnici</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo App::config("url")."operater/index" ?>">Operateri</a>
+                    </li>
+                    <?php endif; ?>
+
                 </ul>
             </div>
             <div class="top-bar-right">

@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th>Korisničko ime</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>E-mail</th>
+            <th>Telefon</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($korisnici as $korisnik): ?>
+        <tr>
+            <td><?php echo $korisnik->korisnickoime ?></td>
+            <td><?php echo $korisnik->ime ?></td>
+            <td><?php echo $korisnik->prezime ?></td>
+            <td><?php echo $korisnik->email ?></td>
+            <td><?php echo $korisnik->telefon ?></td>
+            
+            <td> 
+                <a href="<?php echo App::config("url") ?>korisnik/edit/<?php echo $korisnik->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i>
+                </a>
+            
+             </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
