@@ -6,9 +6,9 @@ return [
     "nazivApp" => "Kreatvina razmjena",
     "db"=> [
         "host"=>"localhost",
-        "name"=>"kreativnarazmjena",
-        "user"=>"kreacija",
-        "password"=>"kreacija"
+        "name"=>"minerva_kreacija",
+        "user"=>"minerva_alfa",
+        "password"=>"kreacija123"
     ]
 
 ];
