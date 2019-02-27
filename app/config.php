@@ -3,7 +3,7 @@
 return [
     "url"=>"http://polaznik42.edunova.hr/",
     "dev"=>true,
-    "nazivApp" => "Kreatvina razmjena",
+    "nazivApp" => "Kreativna razmjena",
     "db"=> [
         "host"=>"localhost",
         "name"=>"minerva_kreacija",
