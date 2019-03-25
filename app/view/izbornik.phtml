@@ -19,6 +19,8 @@
                     <li>
                         <a href="<?php echo App::config("url")."kontakt" ?>">Kontakt</a>
                     </li>
+
+
                     <?php if(Session::getInstance()->isLogiran()): ?>
                     <li>
                         <a href="<?php echo App::config("url")."korisnik/index" ?>">Korisnici</a>
@@ -36,8 +38,12 @@
                         <?php if(Session::getInstance()->isLogiran()): ?>
                         <a href="<?php echo App::config("url") ?>admin/odjava">Odjava
                             <?php echo Session::getInstance()->getUser()->imePrezime ?>
-                        </a>
+                        </a>     
+                        <li>             
                         <?php else:?>
+                         <a href="<?php echo App::config("url")."registracija" ?>">Registracija</a>
+                         </li>
+                   
                         <a href="<?php echo App::config("url") ?>admin/prijava">Prijava</a>
                         <?php endif;?>
                     </li>

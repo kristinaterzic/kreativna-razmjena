@@ -1,0 +1,61 @@
+<!-- <form class="log-in-form" method="post" 
+action="<?php // echo App::config("url") ?>registracija/add">
+
+ <?php // include_once "kontrole.phtml" ?>
+ 
+ <div class="grid-x">
+    <div class="large-6 columns" style="padding: 10px;">
+        <a href="<?php // echo App::config("url") ?>index" class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-6 columns"  style="padding: 10px;">
+        <input type="submit" class="button expanded" value="Registriraj me!" />
+    </div>
+ </div>
+  
+ 
+
+</form> -->
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<div class="grid-x grid-margin-x">
+<div class="cell medium-6">
+<form class="log-in-form" method="post" action="<?php echo App::config("url") ?>registracija/add">
+  <div class="form-icons">
+    Registracija
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-user"></i>
+      </span>
+      <input class="input-group-field" name="korisnickoime" type="text" value="<?php echo Request::post("korisnickoime") ?>" placeholder="Korisničko ime">
+    </div>
+    </div>
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-envelope"></i>
+      </span>
+      <input class="input-group-field" name="email" type="text" value="<?php echo Request::post("email") ?>" placeholder="Email">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-key"></i>
+      </span>
+      <input class="input-group-field" id="password" name="lozinka" type="password" required value="<?php echo Request::post("lozinka") ?>" placeholder="Lozinka">
+    </div>
+  </div>
+  </div>
+
+  <?php // echo $poruka ?>
+
+  <div class="grid-x">
+    <div class="large-3 columns" style="padding: 10px;">
+        <a href="<?php echo App::config("url") ?>index" class="alert button expanded">Odustani</a>
+    </div>
+    <div class="large-3 columns"  style="padding: 10px;">
+        <input type="submit" class="success button expanded" value="Registriraj me!" />
+        </div>
+ </div>
+</form>
+

@@ -43,8 +43,8 @@ class Korisnik{
     public static function add()
     {
         $db = Db::getInstance();
-        $izraz = $db->prepare("insert into korisnik (korisnickoime,ime,prezime,email,telefon)
-        values (:korisnickoime,:ime,:prezime,:email,:telefon)");
+        $izraz = $db->prepare("insert into korisnik (korisnickoime,ime,prezime,email,telefon,lozinka,oib,datumrodenja,omeni,profilnaslika)
+        values (:korisnickoime,:ime,:prezime,:email,:telefon,:lozinka,:oib,:datumrodenja,:omeni,:profilnaslika)");
         $izraz->execute(self::podaci());
     }
 
@@ -56,7 +56,12 @@ class Korisnik{
         ime=:ime,
         prezime=:prezime,
         email=:email,
-        telefon=:telefon
+        telefon=:telefon,
+        lozinka=:lozinka,
+        oib=:oib,
+        datumrodenja=:datumrodenja,
+        omeni=:omeni,
+        profilnaslika=:profilnaslika
         where sifra=:sifra");
         $podaci = self::podaci();
         $podaci["sifra"]=$id;
@@ -78,7 +83,12 @@ class Korisnik{
             "ime"=>Request::post("ime"),
             "prezime"=>Request::post("prezime"),
             "email"=>Request::post("email"),
-            "telefon"=>Request::post("telefon")
+            "telefon"=>Request::post("telefon"),
+            "lozinka"=>password_hash(Request::post("lozinka"),PASSWORD_BCRYPT),
+            "oib"=>Request::post("oib"),
+            "datumrodenja"=>Request::post("datumrodenja"),
+            "omeni"=>Request::post("omeni"),
+            "profilnaslika"=>Request::post("profilnaslika")
         ];
     }
 

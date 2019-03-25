@@ -74,7 +74,8 @@ class KorisnikController
         if($ukupno>0){
             return "Korisničko ime postoji, odaberite drugo korisničko ime.";
         }
-       
+
+            
         if(Request::post("ime")===""){
             return "Ime je obavezno.";
         }
@@ -85,6 +86,14 @@ class KorisnikController
 
         if(Request::post("telefon")===""){
             return "Telefon je obavezan.";
+        }
+
+        if(Request::post("lozinka")===""){
+            return "Lozinka je obavezna.";
+        }
+
+        if(strlen(Request::post("lozinka"))<8){
+            return "Lozinka mora imati minimalno 8 znakova.";
         }
 
         return true;
@@ -110,6 +119,11 @@ class KorisnikController
         $_POST["prezime"]=$korisnik->prezime;
         $_POST["email"]=$korisnik->email;
         $_POST["telefon"]=$korisnik->telefon;
+        //$_POST["lozinka"]=$korisnik->lozinka;
+        $_POST["oib"]=$korisnik->oib;
+        $_POST["datumrodenja"]=$korisnik->datumrodenja;
+        $_POST["omeni"]=$korisnik->omeni;
+        $_POST["profilnaslika"]=$korisnik->profilnaslika;
         $_POST["sifra"]=$korisnik->sifra;
 
         $view->render(
