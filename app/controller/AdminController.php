@@ -13,7 +13,7 @@ class AdminController
         //nedostaje konkretan login
 
         $db=Db::getInstance();
-        $izraz = $db->prepare("select ime,prezime, email,lozinka from operater where email=:email");
+        $izraz = $db->prepare("select ime,prezime, email,lozinka from korisnik where email=:email");
         $izraz->execute(["email"=>Request::post("email")]);
 
         $view = new View();
@@ -48,6 +48,6 @@ class AdminController
 
         Session::getInstance()->odjava();
         $view = new View();
-        $view->render('index',["poruka"=>""]);
+        $view->render('index',["poruka"=>"Odjavljeni ste."]);
     }
 }

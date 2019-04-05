@@ -22,12 +22,11 @@
     <input type="number" name="telefon"
     value="<?php echo Request::post("telefon") ?>" />
   </label>
-
-    <label>Lozinka
-    <input type="text" name="lozinka"
-    value="<?php echo Request::post("lozinka") ?>" />
-  </label>
-
+ 
+  <label> Lozinka
+  <input class="input-group-field" id="password" name="lozinka" type="password" required value="<?php echo Request::post("lozinka") ?>">
+  </label>  
+  
   <label>OIB
     <input type="number" name="oib"
     value="<?php echo Request::post("oib") ?>" />
@@ -47,3 +46,4 @@
     <input type="text" name="profilnaslika"
     value="<?php echo Request::post("profilnaslika") ?>" />
   </label>
+

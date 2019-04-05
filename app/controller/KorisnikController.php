@@ -76,7 +76,7 @@ class KorisnikController
         }
 
             
-        if(Request::post("ime")===""){
+        /* if(Request::post("ime")===""){
             return "Ime je obavezno.";
         }
 
@@ -86,7 +86,7 @@ class KorisnikController
 
         if(Request::post("telefon")===""){
             return "Telefon je obavezan.";
-        }
+        } */
 
         if(Request::post("lozinka")===""){
             return "Lozinka je obavezna.";

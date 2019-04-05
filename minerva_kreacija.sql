@@ -1,18 +1,20 @@
 drop database if exists minerva_kreacija;
 create database minerva_kreacija character set utf8 collate utf8_general_ci;
+/* mysql -uminerva_alfa -pkreacija123 --default_character_set=utf8 < E:\vhost\polaznik42.edunova.hr\minerva_kreacija.sql 
+alter database minerva_kreacija character set utf8 collate utf8_general_ci; */
 use minerva_kreacija;
 
 create table korisnik(
 sifra 						int not null primary key auto_increment,
 korisnickoime 				varchar(20) not null,
-datumreg					datetime not null,
+datumreg					TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
 ime 						varchar(50),
 prezime 					varchar(50),
 email 						varchar(100) not null,
 telefon 					varchar(20),
 lozinka						varchar(200) not null,
 oib 						char(11),
-datumrodenja 				datetime,
+datumrodenja 				date,
 omeni 						varchar(255),
 profilnaslika 				varchar(255)
 );
@@ -67,12 +69,12 @@ insert into korisnik
 (
 null,
 'Pero_pitur',
-'2018-10-02',
+'2018-10-02 09:32:00',
 'Petar',
 'Anić',
 'pero.piturZG@gmail.com',
 '+385952225555',
-'$2y$10$HSbXqWns5.PRWg4U.mz.keuej1sMYGvb.WXhuLdMd7ju1cyUg8kE2',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
 '01234567891',
 '1975-07-10',
 'Pozdrav! Moje ime je Petar, bavim se umjetničkim slikanjem. Najčešća tehnika koju koristim je ulje na platnu.',
@@ -82,12 +84,27 @@ null
 (
 	null,
 'Foto_Ana',
-'2018-10-03',
+'2018-10-03 17:05:00',
 'Ana',
 'Simić',
 'foto.ana5@gmail.com',
 '+385991116666',
-'$2y$10$Vny1RG//8o1NJd/w4PxBMOln/Dra1YApsSSzZDre79toXGm7XE2EO',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'55555555555',
+'1988-04-22',
+'Bavim se fotografijom posljednjih 5 godina.',
+null
+),
+/* ovdje sam stala - kod passworda*/
+(
+	null,
+'Luka_lukic',
+'2018-10-10 18:05:00',
+'Luka',
+'Lukić',
+'luka.lukic@gmail.com',
+'+385992555226',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
 '55555555555',
 '1988-04-22',
 'Bavim se fotografijom posljednjih 5 godina.',
@@ -96,12 +113,12 @@ null
 
 (null,
 'Sara-design',
-'2018-10-06',
+'2018-10-06 10:55:02',
 'Sara',
 'Sarić',
 'sara.design@gmail.com',
 '+385958884444',
-'$2y$10$oSi4G6jx/w1.B7wY0Q3csORPoresOPXYSV363l8/qmkPTPt06LiWK',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
 null,
 '1989-07-23',
 'Pozdrav, ime mi je Sara i posljednjih 10 godina se bavim grafičkim dizajnom.',

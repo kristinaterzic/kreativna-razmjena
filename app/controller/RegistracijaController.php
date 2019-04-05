@@ -4,8 +4,13 @@ class RegistracijaController{
     
     function index(){        
         $view = new View();
-        $view->render('registracija/new',["poruka"=>"Uspješno ste se registrirali!"]);
+        $view->render('registracija/index',["poruka"=>""]);
 
+    }
+
+    function uspjeh(){
+        $view = new View();
+        $view->render('registracija/uspjeh');
     }
 
     function add()
@@ -13,12 +18,13 @@ class RegistracijaController{
         
         $kontrola = $this->kontrola();
         if($kontrola===true){
-            Registracija::add();
-            $this->index();
+            Registracija::add();            
+            $this->uspjeh();
+            //echo "Uspješno ste se registrirali!";
         }else{
             $view = new View();
             $view->render(
-                'registracija/new',
+                'registracija/index',
                 [
                 "poruka"=>$kontrola
                 ]
