@@ -56,4 +56,31 @@ body {
     border-radius: 50px;
   }
   
+  #kategorije_ikona { 
+    color: rgb(241, 103, 123);
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  #kategorije_naziv{
+    color: black;
+    text-align: center;
+  }
+
+  #okvir{
+    width: 180px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-left: 3px;
+    margin-right: 3px;    
+  }
+
+  #okvir:hover{
+    background-color: rgb(221, 250, 221);
+  }
   

@@ -8,4 +8,6 @@ class IndexController{
         $view->render('index',["poruka"=>"Dobar dan"]);
 
     }
+   
+    
 }

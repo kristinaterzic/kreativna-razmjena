@@ -22,13 +22,14 @@ profilnaslika 				varchar(255)
 create table kategorija(
 sifra 						int not null primary key auto_increment,
 naziv 						varchar(100) not null,
+ikona						varchar(50),
 nadredjena					int
 );
 
 create table oglas(
 sifra 						int not null primary key auto_increment,
-pocetnidatum 				datetime not null,
-datumisteka 				datetime,
+pocetnidatum 				date not null,
+datumisteka 				date,
 korisnik					int not null,
 vrsta						varchar(50) not null,
 naziv 						varchar(100) not null,
@@ -39,7 +40,7 @@ javljamse_korisnik			int
 
 create table ocjena (
 sifra 						int not null primary key auto_increment,
-datumocjene					datetime,
+datumocjene					TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
 ocjena						int not null,
 oglas						int not null,
 javljamse_korisnik			int
@@ -68,6 +69,21 @@ insert into korisnik
 
 (
 null,
+'Terza',
+'2018-09-05 08:07:00',
+'Kristina',
+'Terzić',
+'kristina.terzic01@gmail.com',
+'+385952225555',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'61611115365',
+'1989-08-02',
+'Pozdrav, zovem se Kristina i napravila sam ovu stranicu.',
+null
+),
+
+(
+null,
 'Pero_pitur',
 '2018-10-02 09:32:00',
 'Petar',
@@ -75,7 +91,7 @@ null,
 'pero.piturZG@gmail.com',
 '+385952225555',
 '$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
-'01234567891',
+'45766147816',
 '1975-07-10',
 'Pozdrav! Moje ime je Petar, bavim se umjetničkim slikanjem. Najčešća tehnika koju koristim je ulje na platnu.',
 null
@@ -90,12 +106,12 @@ null
 'foto.ana5@gmail.com',
 '+385991116666',
 '$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
-'55555555555',
+'55049590190',
 '1988-04-22',
-'Bavim se fotografijom posljednjih 5 godina.',
+'Ja sam Ana i bavim se fotografijom posljednjih 5 godina.',
 null
 ),
-/* ovdje sam stala - kod passworda*/
+
 (
 	null,
 'Luka_lukic',
@@ -105,9 +121,9 @@ null
 'luka.lukic@gmail.com',
 '+385992555226',
 '$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
-'55555555555',
+'53202009382',
 '1988-04-22',
-'Bavim se fotografijom posljednjih 5 godina.',
+'Grafički sam dizajner s dugogodišnjim iskustvom.',
 null
 ),
 
@@ -119,30 +135,258 @@ null
 'sara.design@gmail.com',
 '+385958884444',
 '$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
-null,
+'28068051808',
 '1989-07-23',
-'Pozdrav, ime mi je Sara i posljednjih 10 godina se bavim grafičkim dizajnom.',
+'Pozdrav, ime mi je Sara i posljednjih 10 godina se bavim web dizajnom.',
 null
-);
+),
 
-insert into kategorija (sifra,naziv,nadredjena) values
-(null,'Fotografija',null),
-(null,'Slikanje, crtanje',null),
-(null,'Grafički dizajn',null),
-(null,'Kreiranje glazbe',null),
-(null,'Usluga profesionalnog fotografiranja',1),
-(null,'Obrada digitalnih fotografija',1),
-(null,'Slikanje umjetničkih slika tehnikom ulje na platnu',2),
-(null,'Crtanje umjetničkih slika grafitnom olovkom',2),
-(null,'Izrada vizitki, letaka, brošura - manjih grafičkih proizvoda',3),
-(null,'Izrada knjige grafičkih standarda',3);
+(null,
+'Milla_music',
+'2018-10-10 13:25:02',
+'Mila',
+'Milić',
+'milla.music@gmail.com',
+'+385950202002',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'58689973630',
+'1985-05-10',
+'Profesionalni sam klavirist, za Vas ću uglazbiti pjesme za koje ste napisli tekstove.',
+null
+),
+
+(null,
+'Big_brother',
+'2018-01-01 15:30:06',
+'Matej',
+'Matić',
+'big.brother@gmail.com',
+'+385282548402',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'47340321213',
+'1990-02-04',
+'Trebate profesionalni video snimak? Došli ste na pravo mjesto!',
+null
+),
+
+(null,
+'Ankica_krojačica',
+'2018-09-07 17:22:06',
+'Ankica',
+'Ančić',
+'ankica.krojacica@gmail.com',
+'+385998855112',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'07733571627',
+'1960-03-15',
+'Krojačica sam s dugogodišnjim iskustvom, šijem kvalitetnu odjeću po mjeri.',
+null
+),
+
+(null,
+'Zlatno_Pero',
+'2018-06-07 09:10:06',
+'Zlatko',
+'Pero',
+'zlatko.pero@gmail.com',
+'+385991212553',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'26043557301',
+'1975-11-22',
+'Trebate usluge kreativnog pisanja? Javite se s povjerenjem.',
+null
+),
+(null,
+'Šljokica',
+'2018-08-14 11:08:55',
+'Maja',
+'Perlica',
+'maja.perlica@gmail.com',
+'+385981448732',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'38125844450',
+'1994-02-11',
+'Izrađujem ručno rađeni nakit.',
+null
+),
+
+(null,
+'Umjetnost_i_dom',
+'2018-04-08 22:06:22',
+'Dinka',
+'Danić',
+'dinka.loveshome@gmail.com',
+'+38598123545',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'83321369625',
+'1982-09-06',
+'Izrađujem ukrasne police, kaliće za cvijeće, stoliće za uređenje doma. Pogledajte moju galeriju.',
+null
+),
+(null,
+'Gift4you',
+'2018-11-03 09:35:04',
+'Ivana',
+'Ivanić',
+'gift4you@gmail.com',
+'+38526525251',
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+'94282312285',
+'1986-01-18',
+'Izrađujem unikatne poklone za vaše najmilije! Pogledajte primjere u mojoj galeriji.',
+null
+),
+
+(null,
+'Ami',
+'2018-09-05 08:07:00',
+null,null,
+'ami09@gmail.com',
+null,
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+null,null,null,null),
+
+(null,
+'Bill',
+'2018-09-05 08:07:00',
+null,null,
+'bill@gmail.com',
+null,
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+null,null,null,null),
+
+(null,
+'Veronika',
+'2018-09-05 08:07:00',
+null,null,
+'vero09@gmail.com',
+null,
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+null,null,null,null),
+
+(null,
+'Ronnie',
+'2018-09-05 08:07:00',
+null,null,
+'ronnie@gmail.com',
+null,
+'$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau',
+null,null,null,null);
+
+insert into kategorija (sifra,naziv,ikona,nadredjena) values
+(null,'Fotografija','camera',null),
+(null,'Slikanje, crtanje','palette',null),
+(null,'Grafički dizajn','magic',null),
+(null,'Web dizajn','code',null),
+(null,'Kreiranje glazbe','music',null),
+(null,'Kreiranje videa','video',null),
+(null,'Izrada odjeće','tshirt',null),
+(null,'Kreativno pisanje','pen-fancy',null),
+(null,'Izrada nakita','gem',null),
+(null,'Kućne dekoracije','couch',null),
+(null,'Izrada poklona','gift',null),
+(null,'Ostalo','ellipsis-h',null);
+
 
 insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponude,kategorija,javljamse_korisnik) values
-(null,'2018-11-20','2018-12-20',1,'ponuda','Slikam umjetničke slike tehnikom ulje na platnu po narudžbi','Naslikat ću Vam umjetničku sliku po narudžbi slikarskom tehnikom ulje na platnu. Možete mi poslati fotografiju Vaših najmilijih ili opisati detalje i motive slike kakvu biste voljeli imati. Dostupne dimenzije...',7,2),
-(null,'2018-11-10','2018-12-10',2,'ponuda','Fotografiranje događaja - rođendani, djevojačke, momačke, krstitke, krizme...','Fotografiram bitne događaje u Vašem životu u Zagrebu i okolici. Javite se...',5,3);
+(null,
+'2018-11-20',
+'2018-12-20',
+2,
+'ponuda',
+'Slikanje umjetničkih slika',
+'Naslikat ću Vam umjetničku sliku po narudžbi slikarskom tehnikom ulje na platnu. Možete mi poslati fotografiju Vaših najmilijih ili opisati detalje i motive slike kakvu biste voljeli imati. Dostupne dimenzije...',
+2,
+null),
+
+(null,
+'2018-11-10',
+'2018-12-10',
+3,
+'ponuda',
+'Fotografiranje događaja - rođendani, djevojačke, momačke, krstitke, krizme...','Fotografiram bitne događaje u Vašem životu u Zagrebu i okolici. Javite se...',
+1,
+3),
+
+(null,
+'2018-11-20',
+'2018-12-20',
+4,
+'ponuda',
+'Dizajn grafičkih proizvoda',
+'Dizajniram jedinstvene logotipe po narudžbi, izrađujem manje grafičke proizvode postere, letke, brošure, vizit kartice, pozivnice. Javite se s povjerenjem.',
+3,
+2),
+
+(null,
+'2018-11-20',
+'2018-12-20',
+5,
+'ponuda',
+'Jedinstveni dizajn mrežnih stranica',
+'Web dizjaner s iskustvom kreira jedinstveni izgled Vaše mrežne stranice.',
+4,
+null),
+
+(null,
+'2018-11-20',
+'2018-12-20',
+6,
+'ponuda',
+'Skladam klavirske pratnje po narudžbi',
+'Treba li Vam jedinstvena autoraska klavirska pratnja za Vaše video snimke? Želite li uglaubiti svoje tekstove? Javite se s povjerenjem.',
+5,
+4),
+
+(null,
+'2018-11-20',
+'2018-12-20',
+7,
+'ponuda',
+'Video snimanje',
+'Usluga profesionalnog snimanja - vjenčanja, krštenja, rođendani... Javite se s povjerenjem.',
+6,
+6),
+
+(null,
+'2018-11-20',
+'2018-12-20',
+8,
+'ponuda',
+'Šivanje odjeće',
+'Krojačica s dugogodišnjim iskustvom šije sve oblike odjevnih predmeta po mjeri.',
+7,
+null),
+
+(null,
+'2018-11-20',
+'2018-12-20',
+9,
+'ponuda',
+'Kreativno pisanje',
+'Ako trebate usluge kreativnog pisanja, javite se.',
+8,
+7),
+
+
+(null,
+'2018-11-20',
+'2018-12-20',
+10,
+'ponuda',
+'Ručno rađeni nakit',
+'Izrađujem ručno rađeni nakit. Pogledajte ponudu u galeriji.',
+9,
+null);
+
 
 insert into ocjena (sifra,datumocjene,ocjena,oglas,javljamse_korisnik) values
-(null,'2018-11-15',5,1,2);
+(null,'2018-11-16 09:25:04',5,2,3),
+(null,'2018-11-17 10:45:04',4,3,2),
+(null,'2018-11-18 11:15:04',3,5,4),
+(null,'2018-11-19 12:16:04',5,6,6),
+(null,'2018-11-20 13:09:04',2,8,7);
+
 
 create table operater(
 	sifra int not null primary key auto_increment,

@@ -7,9 +7,6 @@ class Operater{
         $izraz = $db->prepare("select sifra,ime,prezime,email from operater");
         $izraz->execute();
         return $izraz->fetchAll();
-    }
-
-    
-
+    } 
 
 }
