@@ -16,85 +16,25 @@
     <input class="input-field search-field" type="search" placeholder="Pretražite oglase..." />
 </div>
 
-<div class="grid-x">
-<div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-camera" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Fotografija</a>        
-        </p>
-    </div>
-<div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-palette" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Slikanje, crtanje</a>
-    </p>
-    </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-magic" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Grafički dizajn</a>
-    </p>
-    </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-code" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Web dizajn</a>
-        </p>
-    </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-music" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Kreiranje glazbe</a>
-        </p>
-    </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-video" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Kreiranje videa</a>
-    </p>
-    </div>
-
-</div>
 
 <div class="grid-x">
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-tshirt" id="kategorije_ikona"></i>
+<?php foreach(Kategorija::read1() as $naziv): ?>
+<div class="callout cell large-2 columns" id="okvir">
+        <i class="fas fa-<?php echo $naziv->ikona?>" id="kategorije_ikona"></i>
         <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Izrada odjeće</a>
+        <a href="<?php echo App::config("url") ?>kategorija/index"><?php echo $naziv->naziv?></a>        
         </p>
     </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-pen-fancy" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Kreativno pisanje</a>
-        </p>
-    </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-gem" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Izrada nakita</a>
-        </p>
-    </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-couch" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Kućne dekoracije</a>
-        </p>
-    </div>
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-gift" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Izrada poklona</a>
-        </p>
-    </div>   
-    <div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-ellipsis-h" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>oglas/index">Ostalo</a>
-        </p>
-    </div>
-
+<?php endforeach;?>    
 </div>
-
-
+<div class="grid-x">
+<?php foreach(Kategorija::read2() as $naziv): ?>
+<div class="callout cell large-2 columns" id="okvir">
+        <i class="fas fa-<?php echo $naziv->ikona?>" id="kategorije_ikona"></i>
+        <p id="kategorije_naziv">
+        <a href="<?php echo App::config("url") ?>kategorija/index"><?php echo $naziv->naziv?></a>        
+        </p>
+    </div>
+<?php endforeach;?>    
+</div>
 
