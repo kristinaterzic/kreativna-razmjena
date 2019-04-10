@@ -2,7 +2,7 @@
 define("BP",__DIR__ . DIRECTORY_SEPARATOR );
 //echo BP; 
 
-error_reporting(E_ALL);
+error_reporting(E_ERROR);
 ini_set("display_errors",1);
 
 $t = implode(PATH_SEPARATOR,[

@@ -1,7 +1,6 @@
 <?php
 
-class Kategorija
-{
+class Kategorija{
       
     public static function read1(){
     $db = Db::getInstance();

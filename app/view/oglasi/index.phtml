@@ -1,1 +1,15 @@
-Ovdje trebaju biti oglasi
+
+<?php foreach(Oglas::read() as $oglas): ?>
+<div class="grid-x">
+<ul class="accordion" data-accordion>
+  <li class="accordion-item is-active" data-accordion-item>
+    <a href="#" class="accordion-title"><?php echo $oglas->naziv?></a>
+    <div class="accordion-content" data-tab-content >
+      <p><?php echo $oglas->tekstponude?></p>
+      <a href="#"></a>
+    </div>
+  </li>
+</ul>
+</div>
+<?php endforeach;?>
+
