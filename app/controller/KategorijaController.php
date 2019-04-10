@@ -3,25 +3,16 @@
 class KategorijaController
 {
 
-    function read1(){
+    function read(){
         $view = new View();
         $view->render(
             'index',
                 [
-                "index"=>Kategorija::read1()
+                "index"=>Kategorija::read()
                 ]
             );
     }
 
-    function read2(){
-        $view = new View();
-        $view->render(
-            'index',
-                [
-                "index"=>Kategorija::read2()
-                ]
-            );
-    }
 
     function index(){
         $view = new View();

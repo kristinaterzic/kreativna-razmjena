@@ -8,5 +8,4 @@ class OglasController
         $view->render('oglasi/index',["poruka"=>""]);
     }
 
-
 }

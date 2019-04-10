@@ -257,8 +257,6 @@ null
 (null, 'littel.lucienne', '2018-01-11 18:23:03', 'Samson', 'Roberts', 'hturner@example.com', '233-035-6112x69412', 'EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau', '07712623894', '2007-02-15', 'Facilis doloremque reprehenderit quos et sit. Incidunt consectetur perferendis reprehenderit id suscipit consectetur non. Cupiditate facilis tempore et rerum sint.', 'http://lorempixel.com/640/480/');
 
 
-
-
 insert into kategorija (sifra,naziv,ikona,nadredjena) values
 (null,'Fotografija','camera',null),
 (null,'Slikanje, crtanje','palette',null),

@@ -18,17 +18,7 @@
 
 
 <div class="grid-x">
-<?php foreach(Kategorija::read1() as $naziv): ?>
-<div class="callout cell large-2 columns" id="okvir">
-        <i class="fas fa-<?php echo $naziv->ikona?>" id="kategorije_ikona"></i>
-        <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>kategorija/index"><?php echo $naziv->naziv?></a>        
-        </p>
-    </div>
-<?php endforeach;?>    
-</div>
-<div class="grid-x">
-<?php foreach(Kategorija::read2() as $naziv): ?>
+<?php foreach(Kategorija::read() as $naziv): ?>
 <div class="callout cell large-2 columns" id="okvir">
         <i class="fas fa-<?php echo $naziv->ikona?>" id="kategorije_ikona"></i>
         <p id="kategorije_naziv">
