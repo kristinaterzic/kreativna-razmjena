@@ -1,0 +1,13 @@
+<?php foreach(Kategorija::selekcija() as $odabrano): ?>
+<div class="grid-x">
+<ul class="accordion" data-accordion>
+  <li class="accordion-item is-active" data-accordion-item>
+    <a href="#" class="accordion-title"><?php echo $odabrano->naziv?></a>
+    <div class="accordion-content" data-tab-content >
+      <p><?php echo $odabrano->tekstponude?></p>
+      <a href="#"></a>
+    </div>
+  </li>
+</ul>
+</div>
+<?php endforeach;?>

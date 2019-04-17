@@ -2,6 +2,15 @@
 
 class KategorijaController
 {
+    function selekcija(){
+        $view = new View();
+        $view->render(
+            'kategorije/index',
+                [
+                "kategorije"=>Kategorija::selekcija()
+                ]
+            );
+    }
 
     function read(){
         $view = new View();
@@ -16,7 +25,7 @@ class KategorijaController
 
     function index(){
         $view = new View();
-        $view->render('oglasi/index',["poruka"=>""]);
+        $view->render('kategorije/index',["poruka"=>""]);
     }
 
 

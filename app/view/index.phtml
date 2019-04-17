@@ -22,7 +22,8 @@
 <div class="callout cell large-2 columns" id="okvir">
         <i class="fas fa-<?php echo $naziv->ikona?>" id="kategorije_ikona"></i>
         <p id="kategorije_naziv">
-        <a href="<?php echo App::config("url") ?>kategorija/index"><?php echo $naziv->naziv?></a>        
+        <a href="<?php echo App::config("url") ?>kategorija/selekcija"><?php echo $naziv->naziv?></a>
+        <?php //echo $naziv->sifra?>        
         </p>
     </div>
 <?php endforeach;?>    
