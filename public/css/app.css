@@ -91,3 +91,18 @@ body {
   #gornji{
    margin: 0 0 0 0;
   }
+
+  
+  .granica{
+    border: 1px solid #c9c9c9;
+  }
+
+  p.naslov-oglasa{
+    padding: 15px;
+    font-size: 25px;
+    margin: 0 0 0 0;
+  }
+
+  #panel1-label{
+    font-size: 20px;
+  }

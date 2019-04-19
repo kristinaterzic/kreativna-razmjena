@@ -1,13 +1,40 @@
-<?php foreach(Kategorija::selekcija() as $odabrano): ?>
-<div class="grid-x">
-<ul class="accordion" data-accordion>
-  <li class="accordion-item is-active" data-accordion-item>
-    <a href="#" class="accordion-title"><?php echo $odabrano->naziv?></a>
-    <div class="accordion-content" data-tab-content >
-      <p><?php echo $odabrano->tekstponude?></p>
-      <a href="#"></a>
+<div class="granica">
+    <p class="naslov-oglasa"><?php echo Request::post("naziv")?></p>
+        <ul class="tabs" data-tabs id="example-tabs">
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Oglas</a></li>
+        <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
+        <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
+        <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
+        <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
+        <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+    </ul>
+
+    <div class="tabs-content" data-tabs-content="example-tabs">
+        <div class="tabs-panel is-active" id="panel1">
+            
+            <p><?php echo Request::post("tekstponude")?></p>
+        </div>
+        <div class="tabs-panel" id="panel2">
+            <p></p>
+            
+        </div>
+        <div class="tabs-panel" id="panel3">
+            <p></p>
+            <p></p>
+        </div>
+        <div class="tabs-panel" id="panel4">
+            <p></p>
+            
+        </div>
+        <div class="tabs-panel" id="panel5">
+            <p></p>
+            <p></p>
+        </div>
+        <div class="tabs-panel" id="panel6">
+            <p></p>
+            
+        </div>
     </div>
-  </li>
-</ul>
 </div>
-<?php endforeach;?>
+
+ 

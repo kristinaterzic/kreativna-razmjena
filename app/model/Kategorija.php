@@ -1,5 +1,4 @@
 <?php
-
 class Kategorija{
       
     public static function read(){
@@ -9,11 +8,10 @@ class Kategorija{
     return $izraz->fetchAll();
     }
 
-    function selekcija()
+    public static function selekcija($id)
     {
         $db=Db::getInstance();
         $izraz = $db->prepare("
-
         select  a.sifra,
 	            a.pocetnidatum,
                 b.korisnickoime as korisnik,
@@ -23,25 +21,14 @@ class Kategorija{
                 c.naziv as kategorija
                 from oglas a 
                 left join korisnik b on a.korisnik =b.sifra
-                left join kategorija c on a.kategorija =c.sifra 
-                where kategorija=1            
+                left join kategorija c on a.kategorija =c.sifra
+                where c.sifra=:sifra                          
         
-        ");          
+        ");                                
         
-        //   where kategorija = ono iz foreacha?                
-        
-        $izraz->execute();
-        return $izraz->fetchAll();
-        
-    }
-
-    public static function kontakt($id){
-       
-        $db = Db::getInstance();
-        $izraz = $db->prepare("select telefon from korisnik where sifra=:sifra");
         $izraz->execute(["sifra"=>$id]);
         return $izraz->fetch();
-
+        
     }
-
+   
 }    
