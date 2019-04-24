@@ -1,0 +1,34 @@
+<a href="<?php echo App::config("url") ?>kategorija/prepareadd" class="success button expanded">
+    Dodaj novu kategoriju
+</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Redni broj</th>
+            <th>Naziv kategorije</th>
+            <th>Ikona</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($izlistaj as $kategorija): ?>
+        <tr>
+            <td><?php echo $kategorija->sifra ?></td>
+            <td><?php echo $kategorija->naziv ?></td>
+            <td><?php echo $kategorija->ikona ?></td>
+            
+            <td> 
+                <a href="<?php echo App::config("url") ?>kategorija/prepareedit/<?php echo $kategorija->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i>
+                </a>
+               <!--  <?php //if($oglas->ukupno==0): ?> -->
+               <a style="color: red;"
+                     href="<?php echo App::config("url") ?>kategorija/delete/<?php echo $kategorija->sifra ?>">
+                        <i class="fas fa-trash fa-2x"></i>
+                    </a>
+                    <!-- <?php //endif; ?> -->   
+             </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>

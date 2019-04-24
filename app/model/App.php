@@ -26,7 +26,7 @@ final class App{
 
        $controller .= "Controller";
 
-       //echo $controller;
+       //echo "<br />", $controller;
 
        if(!isset($pathParts[1])|| empty($pathParts[1])){
            $action = "index";

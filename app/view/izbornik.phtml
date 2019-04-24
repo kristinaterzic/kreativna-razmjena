@@ -12,7 +12,12 @@
                     <li>
                         <a href="<?php echo App::config("url")."index" ?>">Kategorije</a>
 
+                    </li>                   
+                    <?php if(Session::getInstance()->isLogiran()): ?>
+                    <li>
+                        <a href="<?php echo App::config("url")."kategorija/izlistaj" ?>">Uređuj kategorije</a>
                     </li>
+                    <?php endif; ?>
                     <li>
                         <a href="<?php echo App::config("url")."oglas/index" ?>">Oglasi</a>
 

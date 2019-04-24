@@ -19,7 +19,7 @@
   </label>
 
   <label>Telefon
-    <input type="number" name="telefon"
+    <input type="text" name="telefon"
     value="<?php echo Request::post("telefon") ?>" />
   </label>
  
@@ -33,8 +33,10 @@
   </label>
 
     <label>Datum rođenja
-    <input type="text" name="datumrodenja"
-    value="<?php echo Request::post("datumrodenja") ?>" />
+    <input type="date" name="datumrodenja"
+    value="<?php if(Request::post("datumrodenja")!=null){
+      echo date("Y-m-d",strtotime(Request::post("datumrodenja")));
+    } ?>" />
   </label>
 
       <label>O meni

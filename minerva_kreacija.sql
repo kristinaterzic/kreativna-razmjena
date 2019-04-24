@@ -27,7 +27,7 @@ ikona						varchar(50)
 
 create table oglas(
 sifra 						int not null primary key auto_increment,
-pocetnidatum 				datetime not null,
+pocetnidatum 				TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
 datumisteka 				date,
 korisnik					int not null,
 vrsta						varchar(50) not null,
