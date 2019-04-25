@@ -77,38 +77,18 @@ class KategorijaController
     function selekcija($id)
     {
         $view = new View();
-        $naziv = Kategorija::selekcija($id);
-        $_POST["pocetnidatum"]=$naziv->pocetnidatum;
-        $_POST["korisnik"]=$naziv->korisnik;
-        $_POST["telefon"]=$naziv->telefon;
-        $_POST["email"]=$naziv->email;
-        $_POST["vrsta"]=$naziv->vrsta;
-        $_POST["naziv"]=$naziv->naziv;
-        $_POST["tekstponude"]=$naziv->tekstponude;
-        $_POST["kategorija"]=$naziv->kategorija;
-        $_POST["sifra"]=$naziv->sifra;
+       
         $view->render(
             'kategorije/index',
                 [
-                "poruka"=>""
+                "poruka"=>"",
+                "oglasi"=> Kategorija::selekcija($id)
                 ]
             );
     }
 
 
-   /*  function selekcija()
-    {
-        
-        $view = new View();
-        $view->render(   
-            'kategorije/index',
-                [
-                "kategorije"=>Kategorija::selekcija()
-                ]
-            );
-    } */
-
-    
+     
     function read(){
         $view = new View();
         $view->render(

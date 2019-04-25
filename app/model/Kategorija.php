@@ -33,7 +33,7 @@ class Kategorija{
 
     public static function read(){
     $db = Db::getInstance();
-    $izraz = $db->prepare //select sifra,naziv,ikona from kategorija
+    $izraz = $db->prepare 
         ("   
         select sifra,naziv,ikona from kategorija
         ");
@@ -58,14 +58,15 @@ class Kategorija{
                 from oglas a 
                 left join korisnik b on a.korisnik =b.sifra
                 left join kategorija c on a.kategorija =c.sifra
-                where c.sifra=:sifra                          
+                where c.sifra=:sifra
+                order by pocetnidatum DESC                           
         
         ");                                
         
         $izraz->execute(["sifra"=>$id]);
-        return $izraz->fetch();
+        return $izraz->fetchAll();
         
-    } //kad stavim fetchAll
+    } 
         
     
 

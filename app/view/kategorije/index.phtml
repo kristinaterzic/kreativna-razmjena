@@ -1,6 +1,6 @@
-<!-- <?php //foreach($kategorije as $selekcija): ?> -->
+<?php foreach($oglasi as $selekcija): ?>
 <div class="granica">
-    <p class="naslov-oglasa"><?php echo Request::post("naziv") //echo $selekcija->naziv ?></p>
+    <p class="naslov-oglasa"><?php echo $selekcija->naziv ?></p>
         <ul class="tabs" data-tabs id="example-tabs">
         <li class="tabs-title is-active">
         <a href="#panel1" aria-selected="true">Oglas</a></li>
@@ -14,13 +14,13 @@
     <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
             
-            <p><?php echo Request::post("tekstponude")//$selekcija->tekstponude ?></p>
+            <p><?php echo $selekcija->tekstponude ?></p>
         </div>
         <div class="tabs-panel" id="panel2">
-            <p>Korisničko ime: <?php echo Request::post("korisnik")//$selekcija->korisnik ?></p>
-            <p>Datum objavljivanja oglasa: <?php echo date("d.m.Y.",strtotime(Request::post("pocetnidatum")))//$selekcija->pocetnidatum))?></p>
-            <p>Telefon: <?php echo Request::post("telefon")//$selekcija->telefon ?> </p>
-            <p>Email: <?php echo Request::post("email")//$selekcija->email ?> </p>
+            <p>Korisničko ime: <?php echo $selekcija->korisnik ?></p>
+            <p>Datum objavljivanja oglasa: <?php echo date("d.m.Y.",strtotime($selekcija->pocetnidatum))?></p>
+            <p>Telefon: <?php echo $selekcija->telefon ?> </p>
+            <p>Email: <?php echo $selekcija->email ?> </p>
         </div>
         <div class="tabs-panel" id="panel3">
             <p></p>
@@ -40,4 +40,4 @@
         </div>
     </div>
 </div>
-<!-- <?php //endforeach; ?> -->
+<?php endforeach; ?>
