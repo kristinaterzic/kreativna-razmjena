@@ -2,6 +2,30 @@
 
 class Oglas{
 
+    public static function pretraziOglaseKorisnika($korisnik)
+    {
+        $db = Db::getInstance();
+        $izraz = $db->prepare("
+        
+        select  a.sifra,
+	            a.pocetnidatum,
+                b.korisnickoime as korisnik,
+                a.vrsta,
+                a.naziv,
+                a.tekstponude,
+                c.naziv as kategorija
+                from oglas a 
+                left join korisnik b on a.korisnik =b.sifra
+                left join kategorija c on a.kategorija =c.sifra
+                where a.korisnik=:korisnik
+                order by pocetnidatum DESC
+                                   
+        ");
+        $izraz->execute(["korisnik"=>$korisnik]);
+        return $izraz->fetchAll();
+    }
+
+
     public static function delete($id)
     {
         $db = Db::getInstance();

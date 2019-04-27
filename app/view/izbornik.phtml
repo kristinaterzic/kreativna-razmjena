@@ -22,12 +22,16 @@
                         <a href="<?php echo App::config("url")."pocetna/oglas" ?>">Oglasi</a>
                     </li>
                     <li>
+                        <a href="#">O nama</a>
+                        <ul class="menu vertical">
+                    <li>
                         <a href="<?php echo App::config("url")."onama" ?>">O nama</a>
                     </li>
                     <li>
                         <a href="<?php echo App::config("url")."kontakt" ?>">Kontakt</a>
                     </li>
-
+                    </ul>
+                    </li>
 
                     <?php if(Session::getInstance()->isLogiran()): ?>
                     <li>
@@ -35,18 +39,28 @@
                     </li>
                     <li>
                         <a href="<?php echo App::config("url")."operater/index" ?>">Operateri</a>
+                    </li>     
+
+                    <li>
+                        <a href="#">Moji oglasi</a>
+                        <ul class="menu vertical">
+                        <li>
+                        <a href="<?php echo App::config("url")."oglas/prepareadd/"?><?php echo Session::getInstance()->getUser()->sifra ?>">Dodaj novi</a>
                     </li>
+                            <li>
+                            <a href="<?php echo App::config("url")."oglas/oglasKorisnik/"?><?php echo Session::getInstance()->getUser()->sifra ?>">Uredi oglase </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
                     <?php endif; ?>
 
                 </ul>
             </div>
             <div class="top-bar-right">
-                <ul class="menu izbornikStavke">
-                    <?php if(Session::getInstance()->isLogiran()): ?>
-                    <li>
-                        <a href="<?php echo App::config("url")."oglas/prepareadd/"?><?php echo Session::getInstance()->getUser()->sifra ?>">Predaj oglas</a>
-                    </li>
-                    <?php endif; ?>
+                <ul class="menu izbornikStavke">                   
                     <li>
                         <?php if(Session::getInstance()->isLogiran()): ?>
                         <a href="<?php echo App::config("url") ?>admin/odjava">Odjava

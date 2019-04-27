@@ -30,12 +30,12 @@
             </select>
         
 
-        <label>Naslov oglasa
+            <label>Naslov oglasa
                 <input type="text" name="naziv" value="<?php echo Request::post("naziv") ?>" />
             </label>
             <label>  Tekst oglasa
-<textarea placeholder="Unesite tekst Vašeg oglasa..." name="tekstponude" value="<?php echo Request::post("tekstponude") ?>"></textarea>
-</label>
+                <input type="text" name="tekstponude" value="<?php echo Request::post("tekstponude") ?>" /> 
+            </label>
 
 
 
@@ -46,12 +46,12 @@
 
 
 
-            <a href="<?php echo App::config("url") ?>oglas/delete/<?php echo Request::post("sifra") ?>" class="alert button expanded">
+            <a href="<?php echo App::config("url") ?>index" class="alert button expanded">
                 Odustani
             </a>
         </div>
         <div class="large-6 columns" style="padding: 10px;">
-            <input type="submit" class="success button expanded" value="Promjeni" />
+            <input type="submit" class="success button expanded" value="Unesi" />
         </div>
 
 </form>

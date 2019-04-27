@@ -1,18 +1,58 @@
-<form class="log-in-form" method="post" 
-action="<?php echo App::config("url") ?>oglas/add">
+<form class="log-in-form" method="post"
+    action="<?php echo App::config("url") ?>oglas/new/<?php echo Request::post("sifra") ?>">
+           
+    <label>Datum objavljivanja oglasa
+                <input type="date" name="pocetnidatum" value="<?php 
+                    if(Request::post("pocetnidatum")!=null){
+                        echo date("Y-m-d",strtotime(Request::post("pocetnidatum")));
+                                     }     ?>" /> </label>
+     
+     <label>Datum isteka oglasa
+                <input type="date" name="datumisteka" value="<?php 
+                    if(Request::post("datumisteka")!=null){
+                        echo date("Y-m-d",strtotime(Request::post("datumisteka")));
+                                     }     ?>" /> </label>                                     
 
- <?php include_once "kontrole.phtml" ?>
- 
- <div class="grid-x">
-    <div class="large-6 columns" style="padding: 10px;">
-        <a href="<?php echo App::config("url") ?>pocetna/oglas" class="alert button expanded">Odustani</a>
-    </div>
-    <div class="large-6 columns"  style="padding: 10px;">
-        <input type="submit" class="button expanded" value="Dodaj novi" />
-    </div>
- </div>
-  
- 
+    <label for="kategorija">Kategorija</label>
+        <select name="kategorija" id="kategorija">
+            <option value="0">Odaberi kategoriju</option>
+                <?php foreach(Pocetna::read() as $izlistaj): ?>
+                <option <?php if(Request::post("kategorija")==$izlistaj->sifra):?> selected="selected" <?php endif;?>
+                 value="<?php echo $izlistaj->sifra ?>"><?php echo $izlistaj->naziv ?></option>
+                <?php endforeach; ?>
+            </select>
+            
+    <label for="vrsta">Vrsta oglasa</label>
+        <select name="vrsta" id="vrsta">
+                <option value="0">Odaberi vrstu oglasa</option>          
+                <option value="ponuda">Ponuda</option>          
+                <option value="potražnja">Potražnja</option>          
+            </select>
+        
+
+            <label>Naslov oglasa
+                <input type="text" name="naziv" value="<?php echo Request::post("naziv") ?>" />
+            </label>
+            <label>  Tekst oglasa
+                <input type="text" name="tekstponude" value="<?php echo Request::post("tekstponude") ?>" /> 
+            </label>
+
+
+
+    <div class="grid-x">
+        <div class="large-6 columns" style="padding: 10px;">
+
+        
+
+
+
+            <a href="<?php echo App::config("url") ?>oglas/delete/<?php echo Request::post("sifra") ?>" class="alert button expanded">
+                Odustani
+            </a>
+        </div>
+        <div class="large-6 columns" style="padding: 10px;">
+            <input type="submit" class="success button expanded" value="Unesi" />
+        </div>
 
 </form>
 <?php echo $poruka ?>

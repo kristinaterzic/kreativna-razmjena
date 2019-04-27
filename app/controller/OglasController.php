@@ -8,13 +8,31 @@ class OglasController extends ProtectedController
             $this->index();
     }
 
+    function brisanje($id)
+    {
+            Oglas::delete($id);
+            $this->obrisano();
+    }
 
     function prepareadd($korisnik)
     {
         $this->prepareedit(Oglas::add($korisnik));        
     }
-    
-    function prepareedit($id)
+   
+
+    function oglasKorisnik($korisnik)
+    {
+        $view = new View();
+        $view->render(
+            'oglasi/moji',
+            [
+            "poruka"=>"",
+            "moji"=> Oglas::pretraziOglaseKorisnika($korisnik)
+            ]
+        );
+    }
+
+    function promijeni($id)
     {
         $view = new View();
         $entitet = Oglas::find($id);
@@ -34,7 +52,28 @@ class OglasController extends ProtectedController
             ]
         );
     }
-   
+
+
+    function prepareedit($id)
+    {
+        $view = new View();
+        $entitet = Oglas::find($id);
+        $_POST["pocetnidatum"]=$entitet->pocetnidatum;
+        $_POST["datumisteka"]=$entitet->datumisteka;
+       // $_POST["korisnik"]=$entitet->korisnik;
+        $_POST["vrsta"]=$entitet->vrsta;
+        $_POST["naziv"]=$entitet->naziv;
+        $_POST["tekstponude"]=$entitet->tekstponude;
+        $_POST["kategorija"]=$entitet->kategorija;
+        $_POST["sifra"]=$entitet->sifra;
+
+        $view->render(
+            'oglasi/new',
+            [
+            "poruka"=>""
+            ]
+        );
+    }
   
     function edit($id)
     {
@@ -43,11 +82,30 @@ class OglasController extends ProtectedController
         $kontrola = $this->kontrola();
         if($kontrola===true){
             Oglas::update($id);
-            $this->index();           
+            $this->uspjeh();           
         }else{
             $view = new View();
             $view->render(
                 'oglasi/edit',
+                [
+                "poruka"=>$kontrola
+                ]
+            );
+        }
+    }
+  
+    function new($id)
+    {
+        
+        $_POST["sifra"]=$id;
+        $kontrola = $this->kontrola();
+        if($kontrola===true){
+            Oglas::update($id);
+            $this->uspjeh();           
+        }else{
+            $view = new View();
+            $view->render(
+                'oglasi/new',
                 [
                 "poruka"=>$kontrola
                 ]
@@ -77,14 +135,34 @@ class OglasController extends ProtectedController
     {
         $view = new View();
         $view->render(
-            'pocetne/oglasi',
+            'index',
             [
             "poruka"=>""
             ]
         );
     }
 
-   
+    function uspjeh()
+    {
+        $view = new View();
+        $view->render(
+            'oglasi/uspjeh',
+            [
+            "poruka"=>""
+            ]
+        );
+    }
+
+    function obrisano()
+    {
+        $view = new View();
+        $view->render(
+            'oglasi/obrisano',
+            [
+            "poruka"=>""
+            ]
+        );
+    }
 
   
 
