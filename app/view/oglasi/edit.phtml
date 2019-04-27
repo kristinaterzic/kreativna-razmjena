@@ -24,8 +24,9 @@
             
     <label for="vrsta">Vrsta oglasa</label>
         <select name="vrsta" id="vrsta">
-                <option value="0">Odaberi vrstu oglasa</option>          
-                <option value="ponuda">Ponuda</option>          
+                <option value="0">Odaberi vrstu oglasa</option>
+                <option <?php if(Request::post("vrsta")==$izlistaj->vrsta):?> selected="selected" <?php endif;?>          
+                 value="ponuda">Ponuda</option>          
                 <option value="potražnja">Potražnja</option>          
             </select>
         

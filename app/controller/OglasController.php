@@ -115,18 +115,29 @@ class OglasController extends ProtectedController
 
     function kontrola()
     {
-        /* if(Request::post("naziv")===""){
-            return "Naziv obavezno";
+        if(Request::post("kategorija")=="0"){
+            return "Obavezno odaberite kategoriju oglasa.";
         }
 
-        if(strlen(Request::post("naziv"))>50){
-            return "Naziv ne smije biti veći od 50 znakova";
+        if(Request::post("vrsta")=="0"){
+            return "Obavezno odaberite vrstu oglasa.";
         }
 
-        if(Request::post("smjer")=="0"){
-            return "Obavezno odabir smjera";
+        if(Request::post("naziv")===""){
+            return "Naslov oglasa je obavezan.";
         }
- */
+
+        if(strlen(Request::post("naziv"))>100){
+            return "Naslov ne smije biti veći od 100 znakova";
+        }
+
+        if(Request::post("tekstponude")===""){
+            return "Tekst oglasa je obavezan.";
+        }
+        
+        if(strlen(Request::post("tekstponude"))>255){
+            return "Tekst oglasa ne smije biti veći od 255 znakova";
+        }
 
         return true;
     }
