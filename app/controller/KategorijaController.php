@@ -1,14 +1,45 @@
 <?php
-class KategorijaController
+class KategorijaController extends ProtectedController
 {
+
+    function prepareadd()
+    {
+        $view = new View();
+        $view->render(
+            'kategorije/new',
+            [
+            "poruka"=>""
+            ]
+        );
+    }
+
+    function add()
+    {
+        
+        $kontrola = $this->kontrola();
+        if($kontrola===true){
+            Kategorija::add();
+            $this->izlistaj();
+        }else{
+            $view = new View();
+            $view->render(
+                'kategorije/new',
+                [
+                "poruka"=>$kontrola
+                ]
+            );
+        }
+
+    }
+
     function delete($id)
     {       
             Kategorija::delete($id);
             $this->izlistaj();
     }
 
-
-    function edit($id)
+  
+   function edit($id)
     {
         $_POST["sifra"]=$id;
         $kontrola = $this->kontrola();
@@ -64,45 +95,16 @@ class KategorijaController
         );
     }
 
-    function izlistaj(){
-        $view = new View();
+    function izlistaj(){    
+                  
+        $view = new View();        
         $view->render(   
             'kategorije/read',
                 [
-                "izlistaj"=>Kategorija::read()
+                "izlistaj"=>Pocetna::read()
                 ]
             );
     }  
-
-    function selekcija($id)
-    {
-        $view = new View();
-       
-        $view->render(
-            'kategorije/index',
-                [
-                "poruka"=>"",
-                "oglasi"=> Kategorija::selekcija($id)
-                ]
-            );
-    }
-
-
-     
-    function read(){
-        $view = new View();
-        $view->render(
-            'index',
-                [
-                "index"=>Kategorija::read()
-                ]
-            );
-    }
-    function index(){
-        $view = new View();
-        $view->render('kategorije/index',["poruka"=>""]);
-    }
-
     
 
 

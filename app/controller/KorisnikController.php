@@ -1,17 +1,8 @@
 <?php
 
-class KorisnikController
+class KorisnikController extends ProtectedController
 {
-
-    public function __construct()
-    {
-        if(!Session::getInstance()->isLogiran()){
-            $view = new View();
-            $view->render('index',["poruka"=>"Nemate ovlasti"]);
-            exit;
-        }
-    }
-
+ 
     function add()
     {
         
@@ -74,7 +65,12 @@ class KorisnikController
         if($ukupno>0){
             return "Korisničko ime postoji, odaberite drugo korisničko ime.";
         }
-
+            //private function?
+        if(!Utillity::checkOib(Request::post("oib"))){
+            return "OIB nije u dobrom formatu";
+        }
+        return true;
+    
             
         /* if(Request::post("ime")===""){
             return "Ime je obavezno.";
@@ -119,7 +115,7 @@ class KorisnikController
         $_POST["prezime"]=$korisnik->prezime;
         $_POST["email"]=$korisnik->email;
         $_POST["telefon"]=$korisnik->telefon;
-        //$_POST["lozinka"]=$korisnik->lozinka;
+        $_POST["lozinka"]=$korisnik->lozinka;
         $_POST["oib"]=$korisnik->oib;
         $_POST["datumrodenja"]=$korisnik->datumrodenja;
         $_POST["omeni"]=$korisnik->omeni;

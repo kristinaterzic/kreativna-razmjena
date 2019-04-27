@@ -9,5 +9,12 @@ class IndexController{
 
     }
    
+    function ooops(){
+        //echo "Hello";
+
+        $view = new View();
+        $view->render('ooops');
+
+    }
     
 }

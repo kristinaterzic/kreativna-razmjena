@@ -5,29 +5,31 @@
 <table>
     <thead>
         <tr>
-            <th>Redni broj</th>
             <th>Naziv kategorije</th>
             <th>Ikona</th>
+            <th>Uredi</th>
+            <th>Obriši</th>
         </tr>
     </thead>
     <tbody>
+
+
         <?php foreach($izlistaj as $kategorija): ?>
+                    
         <tr>
-            <td><?php echo $kategorija->sifra ?></td>
             <td><?php echo $kategorija->naziv ?></td>
             <td><?php echo $kategorija->ikona ?></td>
-            
-            <td> 
-                <a href="<?php echo App::config("url") ?>kategorija/prepareedit/<?php echo $kategorija->sifra ?>">
-                    <i class="fas fa-edit fa-2x"></i>
-                </a>
-                                
-               <a style="color: red;"
-                     href="<?php echo App::config("url") ?>kategorija/delete/<?php echo $kategorija->sifra ?>">
-                        <i class="fas fa-trash fa-2x"></i>
-                    </a>
-                 
-             </td>
+
+
+            <td><a href="<?php echo App::config("url") ?>kategorija/prepareedit/<?php echo $kategorija->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i></a></td>
+
+            <td><a style="color: red;"
+                    href="<?php echo App::config("url") ?>kategorija/delete/<?php echo $kategorija->sifra ?>">
+                    <i class="fas fa-trash fa-2x"></i></td>
+            </a>
+
+
         </tr>
         <?php endforeach;?>
     </tbody>

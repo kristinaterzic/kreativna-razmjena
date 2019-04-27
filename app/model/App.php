@@ -50,11 +50,11 @@ final class App{
            }
            
        }else{
-           header("HTTP/1.0 404 Not Found");
-       }
-
-
-
+           /* header("HTTP/1.0 404 Not Found"); */
+           $instanca = new IndexController();
+           $instanca->ooops();
+           }
+       
     }
 
     static function config($key)

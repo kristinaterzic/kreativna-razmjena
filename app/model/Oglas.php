@@ -2,45 +2,52 @@
 
 class Oglas{
 
-        public static function add()
+    public static function update($id)
     {
         $db = Db::getInstance();
-        $izraz = $db->prepare("insert into oglas (korisnik,vrsta,naziv,tekstponude,kategorija)
-        values (:korisnik,:vrsta,:naziv,:tekstponude,:kategorija)");
-        $izraz->execute(self::podaci());
+        $izraz = $db->prepare("update oglas set 
+        pocetnidatum=:pocetnidatum,
+        korisnik=:korisnik,
+        vrsta=:vrsta,
+        naziv=:naziv,
+        tekstponude=:tekstponude,
+        kategorija=:kategorija
+        where sifra=:sifra");
+        
+        if(Request::post("pocetnidatum")==""){
+            $izraz->bindValue("pocetnidatum",null,PDO::PARAM_NULL);
+        }else{
+            $izraz->bindParam("pocetnidatum",Request::post("pocetnidatum"),PDO::PARAM_STR);
+        }
+        $izraz->bindParam("korisnik",Request::post("korisnik"),PDO::PARAM_INT);
+        $izraz->bindParam("vrsta",Request::post("vrsta"),PDO::PARAM_STR);
+        $izraz->bindParam("naziv",Request::post("naziv"),PDO::PARAM_STR);
+        $izraz->bindParam("tekstponude",Request::post("tekstponude"),PDO::PARAM_STR);     
+        $izraz->bindParam("kategorija",Request::post("kategorija"),PDO::PARAM_INT);
+        $izraz->bindParam("sifra",$id,PDO::PARAM_INT);
+
+        $izraz->execute();
+    }
+
+
+    public static function find($id)
+    {
+        $db = Db::getInstance();
+        $izraz = $db->prepare("select * from oglas where sifra=:sifra");
+        $izraz->execute(["sifra"=>$id]);
+        return $izraz->fetch();
+    }
+
+
+    public static function add()
+    {
+        $db = Db::getInstance();
+        $izraz = $db->prepare("insert into oglas (pocetnidatum,korisnik,vrsta,naziv,tekstponude,kategorija) 
+        values (:pocetnidatum,:korisnik,:vrsta,:naziv,:tekstponude,:kategorija)");
+        $izraz->execute();
+        return $db->lastInsertId();
     }
       
-        public static function read(){
-        $db = Db::getInstance();
-        $izraz = $db->prepare("
         
-        select  a.sifra,
-	        a.pocetnidatum,
-                b.korisnickoime as korisnik,
-                a.vrsta,
-                a.naziv,
-                a.tekstponude,
-                c.naziv as kategorija
-                from oglas a 
-                left join korisnik b on a.korisnik =b.sifra
-                left join kategorija c on a.kategorija =c.sifra
-                order by pocetnidatum DESC                   
-                
-        ");
-        $izraz->execute();
-                //echo is_array($izraz) ? 'Array' : 'not an Array';
-                //echo "<br />";
-                //echo is_object($izraz) ? 'object' : 'not an object';   
-        return $izraz->fetchAll();
-        }
 
-        private static function podaci(){
-                return [
-                    "korisnik"=>Request::post("korisnik"),
-                    "vrsta"=>Request::post("vrsta"),
-                    "naziv"=>Request::post("naziv"),
-                    "tekstponude"=>Request::post("tekstponude"),
-                    "kategorija"=>Request::post("kategorija")
-                ];
-            }
-    }
+}

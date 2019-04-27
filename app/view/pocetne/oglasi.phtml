@@ -1,8 +1,4 @@
-<a href="<?php echo App::config("url") ?>oglas/prepareadd" class="success button expanded">
-    Predaj oglas
-</a>
-
-<?php foreach(Oglas::read() as $oglas): ?>
+<?php foreach(Pocetna::svioglasi() as $oglas): ?>
 <div class="grid-x">
     <div class="large-8 columns" style="padding: 10px;">
 

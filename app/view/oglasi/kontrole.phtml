@@ -1,3 +1,9 @@
+<label>Datum objavljivanja oglasa
+      <input type="date" name="pocetnidatum" value="<?php 
+         if(Request::post("pocetnidatum")!=null){
+            echo date("Y-m-d",strtotime(Request::post("pocetnidatum")));
+              } ?>" /> </label>
+
 <label>Korisničko ime
     <input type="number" name="korisnik" 
     value="<?php echo Request::post("korisnik") ?>" />
