@@ -68,7 +68,7 @@ class OglasController extends ProtectedController
         $_POST["sifra"]=$entitet->sifra;
 
         $view->render(
-            'oglasi/new',
+            'oglasi/novi',
             [
             "poruka"=>""
             ]
@@ -94,7 +94,7 @@ class OglasController extends ProtectedController
         }
     }
   
-    function new($id)
+    function novi($id)
     {
         
         $_POST["sifra"]=$id;
@@ -105,7 +105,7 @@ class OglasController extends ProtectedController
         }else{
             $view = new View();
             $view->render(
-                'oglasi/new',
+                'oglasi/novi',
                 [
                 "poruka"=>$kontrola
                 ]
