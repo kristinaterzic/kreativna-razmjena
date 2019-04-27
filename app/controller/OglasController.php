@@ -2,6 +2,13 @@
 
 class OglasController extends ProtectedController
 {
+    function delete($id)
+    {
+            Oglas::delete($id);
+            $this->index();
+    }
+
+
     function prepareadd($korisnik)
     {
         $this->prepareedit(Oglas::add($korisnik));        

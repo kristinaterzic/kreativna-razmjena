@@ -2,8 +2,16 @@
 
 class Oglas{
 
+    public static function delete($id)
+    {
+        $db = Db::getInstance();
+        $izraz = $db->prepare("delete from oglas where sifra=:sifra");
+        $podaci = [];
+        $podaci["sifra"]=$id;
+        $izraz->execute($podaci);
+    }
 
-    // makli smo korisnik=:korisnik,
+    // maknila sam korisnik=:korisnik,
     public static function update($id)
     {
         $db = Db::getInstance();

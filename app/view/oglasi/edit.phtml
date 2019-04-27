@@ -25,8 +25,8 @@
     <label for="vrsta">Vrsta oglasa</label>
         <select name="vrsta" id="vrsta">
                 <option value="0">Odaberi vrstu oglasa</option>          
-                <option value="Ponuda">Ponuda</option>          
-                <option value="Potražnja">Potražnja</option>          
+                <option value="ponuda">Ponuda</option>          
+                <option value="potražnja">Potražnja</option>          
             </select>
         
 
@@ -41,7 +41,12 @@
 
     <div class="grid-x">
         <div class="large-6 columns" style="padding: 10px;">
-            <a href="<?php echo App::config("url") ?>pocetna/oglas" class="alert button expanded">
+
+        
+
+
+
+            <a href="<?php echo App::config("url") ?>oglas/delete/<?php echo Request::post("sifra") ?>" class="alert button expanded">
                 Odustani
             </a>
         </div>
