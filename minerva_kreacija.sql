@@ -34,7 +34,7 @@ korisnik					int not null,
 vrsta						varchar(50) not null,
 naziv 						varchar(100) not null,
 tekstponude					varchar(255),
-kategorija 					int not null,
+kategorija 					int,
 javljamse_korisnik			int
 );
 
@@ -182,9 +182,7 @@ insert into kategorija (sifra,naziv,ikona) values
 (null,'Izrada poklona','gift'),
 (null,'Ostalo','ellipsis-h');
 
-
 insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponude,kategorija,javljamse_korisnik) values
-
 (null,'2019-04-14 09:50:30',NULL,1,'ponuda','Web dizajn','Želite osvježiti svoju stranicu novim i jedinstvenim dizajnom? Došli ste na pravo mjesto! Pogledajte primjere mojih radova u galeriji.',4,NULL),
 (null,'2019-04-10 00:00:00','2019-05-10',2,'ponuda','Slikanje umjetničkih slika','Naslikat ću Vam umjetničku sliku po narudžbi slikarskom tehnikom ulje na platnu. Možete mi poslati fotografiju Vaših najmilijih ili opisati detalje i motive slike kakvu biste voljeli imati. Dostupne dimenzije...',2,NULL),
 (null,'2019-02-03 00:00:00','2019-03-03',12,'ponuda','Umjetničke slike','Slikam umjetničke slike različitim tehnikama: tempere, ulje na platnu, vodene bojice... Pogledajte više u mojoj galeriji.',2,NULL),
@@ -238,7 +236,7 @@ insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponu
 (null,'2019-04-24 00:00:00','2019-05-24',51,'potražnja','Tvrtka IT4you traži web dizajnera','Tvrtka IT4you traži web dizajnera za honorarni angažman zbog povećanja obujma posla. Potrebno znanje HTML5, CSS3 i JavaScripta!',4,NULL),
 (null,'2019-04-25 00:00:00','2019-05-25',52,'potražnja','Tražimo web dizajnera','Tražimo iskusnog web dizajnera za honorarni angažman zbog povećanja obujma posla. Potrebno znanje HTML5, CSS3 i JavaScripta!',4,NULL),
 (null,'2019-04-26 00:00:00','2019-05-26',53,'potražnja','Potreban profesionalni web dizajner','Tražimo profesionalnog web dizajnera za honorarne angažmane. Potreban portfolio.',4,NULL),
-(null,'2019-04-27 00:00:00','2019-05-27',54,'potražnja','Tražim web dizajnera','Trebam web dizajnera za dizajn jedinstvene mrežne stranice za moj krojački obrt. ',4,NULL),
+(null,'2019-04-26 00:00:00','2019-05-27',54,'potražnja','Tražim web dizajnera','Trebam web dizajnera za dizajn jedinstvene mrežne stranice za moj krojački obrt. ',4,NULL),
 (null,'2019-04-02 00:00:00','2019-05-02',55,'potražnja','Lokalni novinarski portal treba usluge web dizajna','Novinarski portal grada Siska treba web dizajnera novi dizajn stranice. Portfolio poželjan.',4,NULL),
 (null,'2019-04-21 00:00:00','2019-05-21',56,'ponuda','Uglazbit ću Vaš tekst','Pošaljite mi Vaš tekst za pjesmu koju želite uglazbiti, dobit ćete uglazbljeni snimak u .mp3 formatu s otpjevanom muškom vokalnom dionicom. Poslušajte moje uratke.',5,NULL),
 (null,'2019-04-22 00:00:00','2019-05-22',57,'ponuda','Snimam profesionalne muške vokalne dionice','Treba li Vam snimiti muške vokalne dionice? Poslušajte dosad snimljene projekte na mom Youtube kanalu.',5,NULL),
@@ -246,18 +244,18 @@ insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponu
 (null,'2019-04-24 00:00:00','2019-05-24',59,'ponuda','Snimam glazbenu pratnju po narudžbi','Trebate nekog da Vam uglazbi tekst i melodiju koju ste osmislili? Trebate li profesionalnu matricu za Vašu pjesmu? Poslušajte moje pjesme na Soundcloudu.',5,NULL),
 (null,'2019-04-25 00:00:00','2019-05-25',60,'potražnja','Tražim gitarista','Treba mi gitarist, koji će mi snimiti gitarske dionice za rock album od 9 pjesama.',5,NULL),
 (null,'2019-04-26 00:00:00','2019-05-26',61,'potražnja','Rock bend iz Zagreba traži bubnjara','Tražimo bubnjara, repertoar koji sviramo možete čuti na našem Youtube kanalu, javite se za detalje.',5,NULL),
-(null,'2019-04-27 00:00:00','2019-05-27',62,'potražnja','Gudački kvartet traži violončelista','Uhodan gudački kvartet traži violončelista za sviranje sezone (lipanj,srpanj,kolovoz i rujan) u Dubrovniku, u restoranu. Repertoar raspisan, dionice pripremljene. Javiti se za detalje.',5,NULL),
-(null,'2019-04-28 00:00:00','2019-05-28',63,'potražnja','Pjevačica traži pratnju na akustičnoj gitari','Pjevačica iz Zagreba traži nekog tko bi ju pratio na akustičnoj gitari za gaže po Zagrebu cca 2x mjesečno vikendom. Repertoar - blues i rock obrade. Prostor za probe osiguran.',5,NULL),
-(null,'2019-04-29 00:00:00','2019-05-29',64,'potražnja','Pop pjevačica traži skladatelja','Tražim nekog tko bi mi skladao autorske pop pjesme.',5,NULL),
+(null,'2019-04-26 00:00:00','2019-05-27',62,'potražnja','Gudački kvartet traži violončelista','Uhodan gudački kvartet traži violončelista za sviranje sezone (lipanj,srpanj,kolovoz i rujan) u Dubrovniku, u restoranu. Repertoar raspisan, dionice pripremljene. Javiti se za detalje.',5,NULL),
+(null,'2019-04-04 00:00:00','2019-05-04',63,'potražnja','Pjevačica traži pratnju na akustičnoj gitari','Pjevačica iz Zagreba traži nekog tko bi ju pratio na akustičnoj gitari za gaže po Zagrebu cca 2x mjesečno vikendom. Repertoar - blues i rock obrade. Prostor za probe osiguran.',5,NULL),
+(null,'2019-04-02 00:00:00','2019-05-02',64,'potražnja','Pop pjevačica traži skladatelja','Tražim nekog tko bi mi skladao autorske pop pjesme.',5,NULL),
 (null,'2019-04-21 00:00:00','2019-05-21',65,'ponuda','Video spotovi','Snimamo profesionalne video spotove po cijeloj Hrvatskoj. Naše radove možete pogledati na našem Youtube kanalu.',6,NULL),
 (null,'2019-04-22 00:00:00','2019-05-22',66,'ponuda','Sisak - video snimanje','Snimam vjenčanja, krštenja, rođendane... u Sisku i okolici. Javite se s povjerenjem.',6,NULL),
 (null,'2019-04-23 00:00:00','2019-05-23',67,'ponuda','Video spotovi','Snimam profesionalne video spotove u Splitu i okolici. Pogledajte moje radove na mom Youtube kanalu.',6,NULL),
 (null,'2019-04-24 00:00:00','2019-05-24',68,'ponuda','Krk - video snimanje','Snimam vjenčanja, krštenja, rođendane... na otoku Krku. Javite se s povjerenjem.',6,NULL),
 (null,'2019-04-25 00:00:00','2019-05-25',69,'ponuda','Osijek - video snimanje','Snimam vjenčanja, krštenja, rođendane... u Osijeku i okolici. Javite se s povjerenjem.',6,NULL),
 (null,'2019-04-26 00:00:00','2019-05-26',70,'ponuda','Vukovar - video snimanje','Snimam vjenčanja, krštenja, rođendane... u Vukovaru i okolici. Javite se s povjerenjem.',6,NULL),
-(null,'2019-04-27 00:00:00','2019-05-27',71,'ponuda','Čakovec- video snimanje','Snimam vjenčanja, krštenja, rođendane... u Čakovcu i okolici. Javite se s povjerenjem.',6,NULL),
-(null,'2019-04-28 00:00:00','2019-05-28',72,'ponuda','Buzet - video snimanje','Snimam vjenčanja, krštenja, rođendane... u Buzetu i okolici. Javite se s povjerenjem.',6,NULL),
-(null,'2019-04-29 00:00:00','2019-05-29',73,'ponuda','Gospić - video snimanje','Snimam vjenčanja, krštenja, rođendane... u Gospiću i okolici. Javite se s povjerenjem.',6,NULL),
+(null,'2019-04-26 00:00:00','2019-05-27',71,'ponuda','Čakovec- video snimanje','Snimam vjenčanja, krštenja, rođendane... u Čakovcu i okolici. Javite se s povjerenjem.',6,NULL),
+(null,'2019-04-05 00:00:00','2019-05-05',72,'ponuda','Buzet - video snimanje','Snimam vjenčanja, krštenja, rođendane... u Buzetu i okolici. Javite se s povjerenjem.',6,NULL),
+(null,'2019-04-03 00:00:00','2019-05-03',73,'ponuda','Gospić - video snimanje','Snimam vjenčanja, krštenja, rođendane... u Gospiću i okolici. Javite se s povjerenjem.',6,NULL),
 (null,'2019-04-21 00:00:00','2019-05-21',74,'ponuda','Korekcija odjeće','Vršim krojačke popravke, mijenjam zatvarače... šijem po mjeri. Javite se - Sisak!',7,NULL),
 (null,'2019-04-22 00:00:00','2019-05-22',75,'ponuda','Krojačke usluge','Vršim sve profesionalne krojačke usluge u Kutini. Javite se.',7,NULL),
 (null,'2019-04-23 00:00:00','2019-05-23',76,'potražnja','Krojački salon traži krojačicu','Krojački salon u Crikvenici traži krojača/icu za honorarni angažman pri većem obujmu posla.',7,NULL),
@@ -268,6 +266,8 @@ insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponu
 (null,'2019-04-08 00:00:00','2019-05-08',81,'ponuda','Nakit od fimo mase','Pravim nakit od fimo mase, velika ponuda u galeriji, ali primam i posebne narudžbe!',9,NULL),
 (null,'2019-04-10 00:00:00','2019-04-10',82,'ponuda','Srebrni nakit','Prodajem srebrni nakit. Pogledajte galeriju, cijena na upit.',9,NULL),
 (null,'2019-04-22 00:00:00','2019-05-22',83,'ponuda','Unikatna keramika','Pogledajte našu veliku ponudu unikatne keramike za dekoraciju doma. Šaljemo po cijeloj Hrvatskoj.',10,NULL);
+
+
 
 
 /* insert into kategorija_oglas (kategorija,oglas) values

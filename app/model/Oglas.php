@@ -2,24 +2,39 @@
 
 class Oglas{
 
+
+    // makli smo korisnik=:korisnik,
     public static function update($id)
     {
         $db = Db::getInstance();
         $izraz = $db->prepare("update oglas set 
         pocetnidatum=:pocetnidatum,
-        korisnik=:korisnik,
+        datumisteka=:datumisteka,
         vrsta=:vrsta,
         naziv=:naziv,
         tekstponude=:tekstponude,
         kategorija=:kategorija
         where sifra=:sifra");
-        
+
         if(Request::post("pocetnidatum")==""){
             $izraz->bindValue("pocetnidatum",null,PDO::PARAM_NULL);
         }else{
             $izraz->bindParam("pocetnidatum",Request::post("pocetnidatum"),PDO::PARAM_STR);
         }
-        $izraz->bindParam("korisnik",Request::post("korisnik"),PDO::PARAM_INT);
+
+        if(Request::post("datumisteka")==""){
+            $izraz->bindValue("datumisteka",null,PDO::PARAM_NULL);
+        }else{
+            $izraz->bindParam("datumisteka",Request::post("datumisteka"),PDO::PARAM_STR);
+        }
+
+
+        if(Request::post("datumisteka")==""){
+            $izraz->bindValue("datumisteka",null,PDO::PARAM_NULL);
+        }else{
+            $izraz->bindParam("datumisteka",Request::post("datumisteka"),PDO::PARAM_STR);
+        }
+        
         $izraz->bindParam("vrsta",Request::post("vrsta"),PDO::PARAM_STR);
         $izraz->bindParam("naziv",Request::post("naziv"),PDO::PARAM_STR);
         $izraz->bindParam("tekstponude",Request::post("tekstponude"),PDO::PARAM_STR);     
@@ -39,15 +54,20 @@ class Oglas{
     }
 
 
-    public static function add()
+    public static function add($korisnik)
     {
         $db = Db::getInstance();
-        $izraz = $db->prepare("insert into oglas (pocetnidatum,korisnik,vrsta,naziv,tekstponude,kategorija) 
-        values (:pocetnidatum,:korisnik,:vrsta,:naziv,:tekstponude,:kategorija)");
-        $izraz->execute();
+        $izraz = $db->prepare("           
+            insert into oglas (pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponude,kategorija) 
+            values (now(),null,:korisnik,'','','',null)
+        ");
+        $izraz->execute(["korisnik"=>$korisnik]);
         return $db->lastInsertId();
     }
       
         
 
 }
+
+
+

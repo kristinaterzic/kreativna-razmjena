@@ -1,102 +1,53 @@
-<?php 
-  $head = "<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">";
-
- $js="
- <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
- <script>
- var putanja=\"" . APP::config("url") .  "\";
- let sifraOglas = " . Request::post("sifra") .";
- </script>
- <script src=\"" . APP::config("url") . "public/js/oglasi/edit.js\"></script>";
-?>
-
-<form class="log-in-form" method="post" action="<?php echo App::config("url") ?>oglas/add">
-
-    <style>
-    span {
-        margin: 5px;
-        padding: 5px;
-        font-size: 1.4rem !important;
-        cursor: pointer !important;
-    }
-
-    .podebljano {
-        font-weight: bold;
-    }
-    </style>
-
-
 <form class="log-in-form" method="post"
     action="<?php echo App::config("url") ?>oglas/edit/<?php echo Request::post("sifra") ?>">
-
-    <div class="grid-x">
-        <div class="large-3 columns">
-
-        <label>Datum objavljivanja oglasa
+           
+    <label>Datum objavljivanja oglasa
                 <input type="date" name="pocetnidatum" value="<?php 
-                if(Request::post("pocetnidatum")!=null){
-                echo date("Y-m-d",strtotime(Request::post("pocetnidatum")));
-                }
-                ?>" /> </label>
+                    if(Request::post("pocetnidatum")!=null){
+                        echo date("Y-m-d",strtotime(Request::post("pocetnidatum")));
+                                     }     ?>" /> </label>
+     
+     <label>Datum isteka oglasa
+                <input type="date" name="datumisteka" value="<?php 
+                    if(Request::post("datumisteka")!=null){
+                        echo date("Y-m-d",strtotime(Request::post("datumisteka")));
+                                     }     ?>" /> </label>                                     
+
+    <label for="kategorija">Kategorija</label>
+        <select name="kategorija" id="kategorija">
+            <option value="0">Odaberi kategoriju</option>
+                <?php foreach(Pocetna::read() as $izlistaj): ?>
+                <option <?php if(Request::post("kategorija")==$izlistaj->sifra):?> selected="selected" <?php endif;?>
+                 value="<?php echo $izlistaj->sifra ?>"><?php echo $izlistaj->naziv ?></option>
+                <?php endforeach; ?>
+            </select>
+            
+    <label for="vrsta">Vrsta oglasa</label>
+        <select name="vrsta" id="vrsta">
+                <option value="0">Odaberi vrstu oglasa</option>          
+                <option value="Ponuda">Ponuda</option>          
+                <option value="Potražnja">Potražnja</option>          
+            </select>
+        
 
         <label>Naslov oglasa
                 <input type="text" name="naziv" value="<?php echo Request::post("naziv") ?>" />
             </label>
+            <label>  Tekst oglasa
+<textarea placeholder="Unesite tekst Vašeg oglasa..." name="tekstponude" value="<?php echo Request::post("tekstponude") ?>"></textarea>
+</label>
 
-        <label>Tekst oglasa
-                <input type="text" name="naziv" value="<?php echo Request::post("tekstponude") ?>" />
-                </label>
-              
-        <label for="kategorija">Kategorija</label>
-            <select name="kategorija" id="kategorija">
-                <option value="0">Odaberi kategoriju</option>
 
-                    <?php foreach(Kategorija::read() as $index): ?>
-                    <option <?php if(Request::post("sifra")==$index->sifra):?> selected="selected" <?php endif;?>
-                        value="<?php echo $index->sifra ?>"><?php echo $index->naziv ?></option>
 
-                    <?php endforeach; ?>
-            </select>
+    <div class="grid-x">
+        <div class="large-6 columns" style="padding: 10px;">
+            <a href="<?php echo App::config("url") ?>pocetna/oglas" class="alert button expanded">
+                Odustani
+            </a>
         </div>
-    <div class="large-1 columns">
-        </div>
-        <div class="large-8 columns" style="overflow: auto; max-height: 400px;">
-            <div class="callout">
-                    traži polaznika
-                    <input type="text" id="uvjet">
-                    Polaznici na grupi
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Ime i prezime</th>
-                                <th>Akcija</th>
-                            </tr>
-                        </thead>
-                        <tbody id="podaci">
-                            <?php// foreach(Polaznik::readGroups(Request::post("sifra")) as $p): ?>
-                            <tr>
-                                <td><?php// echo $p->polaznik ?></td>
-                                <td> <a class="obrisi" id="p_<?php echo $p->sifra ?>" href="#">Obriši</a> </td>
-                            </tr>
-                            <?php //endforeach;?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="large-6 columns" style="padding: 10px;">
+            <input type="submit" class="success button expanded" value="Promjeni" />
         </div>
 
-
-        <div class="grid-x">
-            <div class="large-6 columns" style="padding: 10px;">
-                <a href="<?php echo App::config("url") ?>oglas/index" class="alert button expanded">
-                    Odustani
-                </a>
-            </div>
-            <div class="large-6 columns" style="padding: 10px;">
-                <input type="submit" class="success button expanded" value="Promjeni" />
-            </div>
-        </div>
-
-
-    </form>
-    <?php echo $poruka ?>
+</form>
+<?php echo $poruka ?>

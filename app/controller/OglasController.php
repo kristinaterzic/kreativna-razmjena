@@ -2,26 +2,32 @@
 
 class OglasController extends ProtectedController
 {
-    function prepareadd()
+    function prepareadd($korisnik)
+    {
+        $this->prepareedit(Oglas::add($korisnik));        
+    }
+    
+    function prepareedit($id)
     {
         $view = new View();
+        $entitet = Oglas::find($id);
+        $_POST["pocetnidatum"]=$entitet->pocetnidatum;
+        $_POST["datumisteka"]=$entitet->datumisteka;
+       // $_POST["korisnik"]=$entitet->korisnik;
+        $_POST["vrsta"]=$entitet->vrsta;
+        $_POST["naziv"]=$entitet->naziv;
+        $_POST["tekstponude"]=$entitet->tekstponude;
+        $_POST["kategorija"]=$entitet->kategorija;
+        $_POST["sifra"]=$entitet->sifra;
+
         $view->render(
-            'oglasi/new',
+            'oglasi/edit',
             [
             "poruka"=>""
             ]
         );
     }
-
-
-
-
-
-
-
-
-
-    
+   
   
     function edit($id)
     {
@@ -30,7 +36,7 @@ class OglasController extends ProtectedController
         $kontrola = $this->kontrola();
         if($kontrola===true){
             Oglas::update($id);
-            $this->index();
+            $this->index();           
         }else{
             $view = new View();
             $view->render(
@@ -60,27 +66,18 @@ class OglasController extends ProtectedController
         return true;
     }
 
-   
-
-    function prepareedit($id)
+    function index()
     {
         $view = new View();
-        $entitet = Oglas::find($id);
-        $_POST["pocetnidatum"]=$entitet->pocetnidatum;
-        $_POST["korisnik"]=$entitet->korisnik;
-        $_POST["vrsta"]=$entitet->vrsta;
-        $_POST["naziv"]=$entitet->naziv;
-        $_POST["tekstponude"]=$entitet->tekstponude;
-        $_POST["kategorija"]=$entitet->kategorija;
-        $_POST["sifra"]=$entitet->sifra;
-
         $view->render(
-            'oglasi/edit',
+            'pocetne/oglasi',
             [
             "poruka"=>""
             ]
         );
     }
+
+   
 
   
 

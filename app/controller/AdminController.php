@@ -13,7 +13,7 @@ class AdminController
         //nedostaje konkretan login
 
         $db=Db::getInstance();
-        $izraz = $db->prepare("select ime,prezime,email,lozinka from korisnik where email=:email");
+        $izraz = $db->prepare("select sifra,ime,prezime,email,lozinka from korisnik where email=:email");
         $izraz->execute(["email"=>Request::post("email")]);
 
         $view = new View();
@@ -22,6 +22,7 @@ class AdminController
             $red=$izraz->fetch();
             if(password_verify(Request::post("password"),$red->lozinka)){
                 $user = new stdClass();                
+                $user->sifra=$red->sifra;
                 $user->ime=$red->ime;
                 $user->prezime=$red->prezime;
                 $user->email=$red->email;
