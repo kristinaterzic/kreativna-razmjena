@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Ocjena</th>
+            <th>Korisnik</th>
+            <th>Oglas</th>
+            <th>ID oglasa</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($ocjena as $rating): ?>
+        <tr>
+            <td><?php echo $rating->datumocjene ?></td>
+            <td><?php echo $rating->ocjena ?></td>
+            <td><?php echo $rating->korisnickoime ?></td>
+            <td><?php echo $rating->sadrzajOglasa ?></td>
+            <td><?php echo $rating->IDoglasa ?></td>
+            </tr>   
+            <?php endforeach; ?>
+    </tbody>
+</table>

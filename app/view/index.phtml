@@ -3,6 +3,10 @@
 //echo $poruka;
 ?>
 
+<?php if(Session::getInstance()->isLogiran()): ?>
+    <a href="<?php echo App::config("url")."kategorija/izlistaj" ?>">Uređuj kategorije</a>                  
+<?php endif; ?>
+
 
 <div class="input-group searchbar">
     <div class="input-group-button">

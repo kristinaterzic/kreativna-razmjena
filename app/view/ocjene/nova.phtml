@@ -1,0 +1,35 @@
+<form class="log-in-form" method="post"
+    action="<?php echo App::config("url") ?>ocjena/novaocjena/<?php echo Request::post("sifra") ?>">
+           
+    <label>Datum ocjene
+                <input type="date" name="datumocjene" value="<?php 
+                    if(Request::post("datumocjene")!=null){
+                        echo date("Y-m-d",strtotime(Request::post("datumocjene")));
+                                     }     ?>" /> </label>                                         
+
+    <label for="ocjena">Ocjena</label>
+        <select name="ocjena" id="ocjena">
+            <option value="0">Odaberi ocjenu</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option> 
+            </select>
+                
+    <input type="hidden" name="javljamse_korisnik" value="<?php echo Session::getInstance()->getUser()->sifra ?>">         
+
+    
+    <div class="grid-x">
+        <div class="large-6 columns" style="padding: 10px;">
+
+            <a href="<?php echo App::config("url") ?>ocjena/delete/<?php echo Request::post("sifra") ?>" class="alert button expanded">
+                Odustani
+            </a>
+        </div>
+        <div class="large-6 columns" style="padding: 10px;">
+            <input type="submit" class="success button expanded" value="Unesi" />
+        </div>
+
+</form>
+<?php echo $poruka ?>

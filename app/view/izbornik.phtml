@@ -9,24 +9,14 @@
             <div class="top-bar-left">
                 <ul class="dropdown menu izbornikStavke" data-dropdown-menu>
 
-                    <li>
-                        <a href="<?php echo App::config("url")."index" ?>">Kategorije</a>
-
-                    </li>
-                    <?php if(Session::getInstance()->isLogiran()): ?>
-                    <li>
-                        <a href="<?php echo App::config("url")."kategorija/izlistaj" ?>">Uređuj kategorije</a>
-                    </li>
-                    <?php endif; ?>
-
-                    <li>
-                        <a href="<?php echo App::config("url")."pocetna/oglas" ?>">Oglasi</a>
-                    </li>
-                    <li>
+                <li>
                         <a href="#">O nama</a>
                         <ul class="menu vertical">
                     <li>
                         <a href="<?php echo App::config("url")."onama" ?>">O nama</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo App::config("url")."operater/index" ?>">Operateri</a>
                     </li>
                     <li>
                         <a href="<?php echo App::config("url")."kontakt" ?>">Kontakt</a>
@@ -34,13 +24,25 @@
                     </ul>
                     </li>
 
+                    <li>
+                        <a href="<?php echo App::config("url")."index" ?>">Kategorije</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo App::config("url")."pocetna/oglas" ?>">Oglasi</a>
+                    </li>
+                   
+
+                    
+                   
+
                     <?php if(Session::getInstance()->isLogiran()): ?>
+                    <li>
+                        <a href="<?php echo App::config("url")."ocjena/index" ?>">Ocjene</a>
+                    </li>
                     <li>
                         <a href="<?php echo App::config("url")."korisnik/index" ?>">Korisnici</a>
                     </li>
-                    <li>
-                        <a href="<?php echo App::config("url")."operater/index" ?>">Operateri</a>
-                    </li>     
+                         
 
                     <li>
                         <a href="#">Moji oglasi</a>

@@ -9,6 +9,9 @@
       <li>Telefon: <?php echo $selekcija->telefon ?></li>
       <li>Email: <?php echo $selekcija->email ?></li>
     </ul>
+    <?php if(Session::getInstance()->isLogiran()): ?>
+    <a href="#features" class="alert button">Ocijeni!</a>
+    <?php endif; ?>
     <div class="work-feature-block row">
   <div class="columns medium-7">
     <img class="work-feature-block-image" src="/public/img/<?php echo $selekcija->sifra ?>.png"/>

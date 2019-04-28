@@ -7,15 +7,22 @@
       <li>Korisničko ime: <?php echo $oglas->korisnik ?></li>
       <li>Datum objavljivanja oglasa: <?php echo date("d.m.Y.",strtotime($oglas->pocetnidatum))?></li>
       <li>Telefon: <?php echo $oglas->telefon ?></li>
-      <li>Email: <?php echo $oglas->email ?></li>
+      <li>Email: <?php echo $oglas->email ?></li>      
     </ul>
+
+    <?php if(Session::getInstance()->isLogiran()): ?>
+    <a href="<?php echo App::config("url") ?>ocjena/unos/<?php echo $oglas->sifra ?>" class="alert button">Ocijeni!</a>
+<?php endif; ?>
+  
+
     <div class="work-feature-block row">
   <div class="columns medium-7">
     <img class="work-feature-block-image" src="/public/img/<?php echo $oglas->sifra ?>.png"/>
-  </div>
+  </div>           
   </div>
 </div>
 <?php endforeach; ?>
+
 
 
 <nav aria-label="Pagination">

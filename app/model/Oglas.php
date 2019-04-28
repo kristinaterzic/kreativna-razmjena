@@ -28,6 +28,7 @@ class Oglas{
     }
 
 
+
     public static function delete($id)
     {
         $db = Db::getInstance();

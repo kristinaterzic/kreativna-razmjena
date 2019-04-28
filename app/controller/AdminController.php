@@ -23,6 +23,7 @@ class AdminController
             if(password_verify(Request::post("password"),$red->lozinka)){
                 $user = new stdClass();                
                 $user->sifra=$red->sifra;
+                $user->uloga=$red->uloga;
                 $user->ime=$red->ime;
                 $user->prezime=$red->prezime;
                 $user->email=$red->email;
