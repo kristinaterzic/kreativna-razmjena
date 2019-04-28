@@ -1,43 +1,27 @@
 <?php foreach($oglasi as $selekcija): ?>
-<div class="granica">
-    <p class="naslov-oglasa"><?php echo $selekcija->naziv ?></p>
-        <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active">
-        <a href="#panel1" aria-selected="true">Oglas</a></li>
-        <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
-        <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
-        <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
-        <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
-        <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+  <div class="columns medium-5">
+    <h3 class="work-feature-block-header"><?php echo $selekcija->naziv ?></h3>
+    <p><?php echo $selekcija->tekstponude ?></p>
+    <h4>Detalji</h4>
+    <ul>
+      <li>Korisničko ime: <?php echo $selekcija->korisnik ?></li>
+      <li>Datum objavljivanja oglasa: <?php echo date("d.m.Y.",strtotime($selekcija->pocetnidatum))?></li>
+      <li>Telefon: <?php echo $selekcija->telefon ?></li>
+      <li>Email: <?php echo $selekcija->email ?></li>
     </ul>
-
-    <div class="tabs-content" data-tabs-content="example-tabs">
-        <div class="tabs-panel is-active" id="panel1">
-            
-            <p><?php echo $selekcija->tekstponude ?></p>
-        </div>
-        <div class="tabs-panel" id="panel2">
-            <p>Korisničko ime: <?php echo $selekcija->korisnik ?></p>
-            <p>Datum objavljivanja oglasa: <?php echo date("d.m.Y.",strtotime($selekcija->pocetnidatum))?></p>
-            <p>Telefon: <?php echo $selekcija->telefon ?> </p>
-            <p>Email: <?php echo $selekcija->email ?> </p>
-        </div>
-        <div class="tabs-panel" id="panel3">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="tabs-panel" id="panel4">
-            <p></p>
-            
-        </div>
-        <div class="tabs-panel" id="panel5">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="tabs-panel" id="panel6">
-            <p></p>
-            
-        </div>
-    </div>
+    <div class="work-feature-block row">
+  <div class="columns medium-7">
+    <img class="work-feature-block-image" src="/public/img/<?php echo $selekcija->sifra ?>.png"/>
+  </div>
+  </div>
 </div>
 <?php endforeach; ?>
+
+
+<!-- 
+<nav aria-label="Pagination">
+  <ul class="pagination text-center">
+    <li class="pagination-previous"><a href="<?php // echo App::config("url") ?>pocetna/selekcija/<?php// echo $prethodna ?>" aria-label="Next page">Prethodna <span class="show-for-sr">page</span></a></li>
+    <li class="pagination-next"><a href="<?php //echo App::config("url") ?>pocetna/selekcija/<?php// echo $sljedeca ?>" aria-label="Next page">Sljedeća <span class="show-for-sr">page</span></a></li>
+  </ul>
+</nav> -->

@@ -2,7 +2,29 @@
 
 class PocetnaController 
 {
-    function oglas()
+    function oglas($stranica=1){
+        if($stranica<=0){
+            $stranica=1;
+        }
+        if($stranica===1){
+            $prethodna=1;
+        }else{
+            $prethodna=$stranica-1;
+        }
+        $sljedeca=$stranica+1;
+
+        $view = new View();
+        $view->render(
+            'pocetne/oglasi',
+            [
+            "oglasi"=> Pocetna::svioglasi($stranica),
+            "prethodna"=>$prethodna,
+            "sljedeca"=>$sljedeca
+            ]
+        );
+    }
+
+  /*   function oglas()
     {
         $view = new View();
         $view->render(
@@ -11,7 +33,7 @@ class PocetnaController
             "poruka"=>""
             ]
         );
-    }
+    } */
 
     function selekcija($id)
     {
@@ -36,4 +58,25 @@ class PocetnaController
             );
     }
 
+   /*  function selekcija($id,$stranica=1){
+        if($stranica<=0){
+            $stranica=1;
+        }
+        if($stranica===1){
+            $prethodna=1;
+        }else{
+            $prethodna=$stranica-1;
+        }
+        $sljedeca=$stranica+1;
+
+        $view = new View();
+        $view->render(
+            'pocetne/index',
+            [
+            "oglasi"=> Pocetna::selekcija($id,$stranica),
+            "prethodna"=>$prethodna,
+            "sljedeca"=>$sljedeca
+            ]
+        );
+    } */
 }

@@ -41,8 +41,8 @@ javljamse_korisnik			int
 create table ocjena (
 sifra 						int not null primary key auto_increment,
 datumocjene					TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
-ocjena						int not null,
-oglas						int not null,
+ocjena						int,
+oglas						int,
 javljamse_korisnik			int
 );
 
@@ -268,8 +268,6 @@ insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponu
 (null,'2019-04-22 00:00:00','2019-05-22',83,'ponuda','Unikatna keramika','Pogledajte našu veliku ponudu unikatne keramike za dekoraciju doma. Šaljemo po cijeloj Hrvatskoj.',10,NULL);
 
 
-
-
 /* insert into kategorija_oglas (kategorija,oglas) values
 (1,12),
 (1,13),
@@ -355,7 +353,6 @@ insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponu
 (10,83),
 (11,79),
 (12,NULL); */
-
 
 
 insert into ocjena (sifra,datumocjene,ocjena,oglas,javljamse_korisnik) values

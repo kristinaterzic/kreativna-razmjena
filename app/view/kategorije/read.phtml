@@ -24,10 +24,13 @@
             <td><a href="<?php echo App::config("url") ?>kategorija/prepareedit/<?php echo $kategorija->sifra ?>">
                     <i class="fas fa-edit fa-2x"></i></a></td>
 
-            <td><a style="color: red;"
+                    <td>
+                    <?php if($kategorija->ukupno==0): ?>
+                <a style="color: red;"
                     href="<?php echo App::config("url") ?>kategorija/delete/<?php echo $kategorija->sifra ?>">
-                    <i class="fas fa-trash fa-2x"></i></a></td>
-            
+                    <i class="fas fa-trash fa-2x"></i></a>
+                    <?php endif; ?>
+                    </td>
 
 
         </tr>

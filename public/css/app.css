@@ -6,9 +6,18 @@ h1{
     font-family: 'laila', serif;
 }
 
+h2{
+  font-family: 'laila', serif;
+}
+
 h3{
     font-family: 'laila', serif;
 }
+
+h4{
+  font-family: 'laila', serif;
+}
+
 .large-10.medium-10.small-12.columns>h1{
     width: 100%;
     text-align: center;
@@ -94,7 +103,7 @@ body {
 
   
   .granica{
-    border: 1px solid #c9c9c9;
+    border: 1px solid #c9c9c9;    
   }
 
   p.naslov-oglasa{
@@ -119,3 +128,16 @@ body {
         text-align: center;
     }
 }
+
+
+.work-feature-block {
+  padding: 10px 0;
+  border-bottom: 1px solid #cacaca;
+}
+
+.work-feature-block-image {
+  display: block;
+  margin: auto;
+  padding: 10px 0;
+}
+

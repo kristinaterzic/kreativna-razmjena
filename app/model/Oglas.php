@@ -10,6 +10,8 @@ class Oglas{
         select  a.sifra,
 	            a.pocetnidatum,
                 b.korisnickoime as korisnik,
+                b.telefon,
+                b.email,
                 a.vrsta,
                 a.naziv,
                 a.tekstponude,

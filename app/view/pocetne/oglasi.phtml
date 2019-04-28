@@ -1,40 +1,26 @@
-<?php foreach(Pocetna::svioglasi() as $oglas): ?>
-<div class="grid-x">
-    <div class="large-8 columns" style="padding: 10px;">
-
-        <table>
-            <div class="callout alert">
-                <h5></h5>
-                <p><?php echo $oglas->naziv?></p>
-            </div>
-            <thead>
-                <tr></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Kategorija:</td>
-                    <td><?php echo $oglas->kategorija?></td>
-                </tr>
-                <tr>
-                    <td>Vrsta:</td>
-                    <td><?php echo $oglas->vrsta?></td>
-                </tr>
-                <tr>
-                    <td>Korisnik:</td>
-                    <td><?php echo $oglas->korisnik?></td>
-                </tr>
-                <tr>
-                    <td>Datum objavljivanja:</td>
-                    <td><?php echo date ("d. m. Y.",strtotime($oglas->pocetnidatum)) ?></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="callout secondary">
-            <h5></h5>
-            <p><?php echo $oglas->tekstponude?></p>
-        </div>
-
-
-    </div>
+<?php foreach($oglasi as $oglas): ?>
+  <div class="columns medium-5">
+    <h3 class="work-feature-block-header"><?php echo $oglas->naziv ?></h3>
+    <p><?php echo $oglas->tekstponude ?></p>
+    <h4>Detalji</h4>
+    <ul>
+      <li>Korisničko ime: <?php echo $oglas->korisnik ?></li>
+      <li>Datum objavljivanja oglasa: <?php echo date("d.m.Y.",strtotime($oglas->pocetnidatum))?></li>
+      <li>Telefon: <?php echo $oglas->telefon ?></li>
+      <li>Email: <?php echo $oglas->email ?></li>
+    </ul>
+    <div class="work-feature-block row">
+  <div class="columns medium-7">
+    <img class="work-feature-block-image" src="/public/img/<?php echo $oglas->sifra ?>.png"/>
+  </div>
+  </div>
 </div>
-<?php endforeach;?>
+<?php endforeach; ?>
+
+
+<nav aria-label="Pagination">
+  <ul class="pagination text-center">
+    <li class="pagination-previous"><a href="<?php echo App::config("url") ?>pocetna/oglas/<?php echo $prethodna ?>" aria-label="Next page">Prethodna <span class="show-for-sr">page</span></a></li>
+    <li class="pagination-next"><a href="<?php echo App::config("url") ?>pocetna/oglas/<?php echo $sljedeca ?>" aria-label="Next page">Sljedeća <span class="show-for-sr">page</span></a></li>
+  </ul>
+</nav>
