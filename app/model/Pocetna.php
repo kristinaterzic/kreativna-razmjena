@@ -1,6 +1,41 @@
 <?php
 class Pocetna{
 
+    public static function search()
+    {
+        $db=Db::getInstance();
+        if (isset($_POST['search'])){
+            $searchq = $_POST['search'];
+            $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
+
+            $expression = $db->prepare("                         
+            select  a.sifra,
+	            a.pocetnidatum,
+                b.korisnickoime as korisnik,
+                b.telefon,
+                b.email,
+                a.vrsta,
+                a.naziv,
+                a.tekstponude,
+                c.naziv as kategorija
+                from oglas a 
+                left join korisnik b on a.korisnik =b.sifra
+                left join kategorija c on a.kategorija =c.sifra                
+                where a.naziv like '%$searchq%'
+                or a.tekstponude like '%$searchq%'
+            ")
+                or die("Could not search");
+            $expression->execute();
+            $count = $expression->rowCount();
+            if ($count == 0){
+                return "Nema rezultata!";
+            }else{
+                return $expression->fetchAll();
+                }
+            }
+
+        }
+
     public static function svioglasi($stranica=1){
 
         $poStranici=5;

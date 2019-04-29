@@ -13,7 +13,7 @@ class AdminController
         //nedostaje konkretan login
 
         $db=Db::getInstance();
-        $izraz = $db->prepare("select sifra,ime,prezime,email,lozinka from korisnik where email=:email");
+        $izraz = $db->prepare("select sifra,uloga,ime,prezime,email,lozinka from korisnik where email=:email");
         $izraz->execute(["email"=>Request::post("email")]);
 
         $view = new View();

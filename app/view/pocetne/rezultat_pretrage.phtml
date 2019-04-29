@@ -1,0 +1,30 @@
+<br />
+<form  method="post" action="<?php echo App::config("url") ?>pocetna/search">
+    <input type="search" name="search" value="<?php echo $_POST["search"] ?>" />
+    <input class="button" type="submit" value="Search" />
+</form>
+
+
+
+<?php foreach($pretraga as $rezultati): ?>
+<div class="columns medium-5">
+    <h3 class="work-feature-block-header"><?php echo $rezultati->naziv ?></h3>
+    <p><?php echo $rezultati->tekstponude ?></p>
+    <h4>Detalji</h4>
+    <ul>
+        <li>Korisničko ime: <?php echo $rezultati->korisnik ?></li>
+        <li>Datum objavljivanja oglasa: <?php echo date("d.m.Y.",strtotime($rezultati->pocetnidatum))?></li>
+        <li>Telefon: <?php echo $rezultati->telefon ?></li>
+        <li>Email: <?php echo $rezultati->email ?></li>
+    </ul>
+    <div class="work-feature-block row">
+        <div class="columns medium-7">
+            <img class="work-feature-block-image" src="/public/img/<?php echo $rezultati->sifra ?>.png" />
+        </div>
+        <div>
+            <br />
+            
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>

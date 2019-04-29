@@ -27,6 +27,9 @@
                     <li>
                         <a href="<?php echo App::config("url")."index" ?>">Kategorije</a>
                     </li>
+                    <?php if(Session::getInstance()->isLogiran()): ?>
+                        <a href="<?php echo App::config("url")."kategorija/izlistaj" ?>">Uređuj kategorije</a>                  
+                    <?php endif; ?>
                     <li>
                         <a href="<?php echo App::config("url")."pocetna/oglas" ?>">Oglasi</a>
                     </li>

@@ -2,6 +2,20 @@
 
 class PocetnaController 
 {
+
+    function search()
+    {
+        $view = new View();
+        $view->render(
+            'pocetne/rezultat_pretrage', 
+            [
+            "pretraga" => Pocetna::search()
+            ]
+        );
+
+    }
+
+
     function oglas($stranica=1){
         if($stranica<=0){
             $stranica=1;
