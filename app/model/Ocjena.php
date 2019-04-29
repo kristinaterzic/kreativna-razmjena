@@ -6,7 +6,7 @@ class Ocjena{
     public static function delete($id)
     {
         $db = Db::getInstance();
-        $izraz = $db->prepare("delete from oglas where sifra=:sifra");
+        $izraz = $db->prepare("delete from ocjena where sifra=:sifra");
         $podaci = [];
         $podaci["sifra"]=$id;
         $izraz->execute($podaci);

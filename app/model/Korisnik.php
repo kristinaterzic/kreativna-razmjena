@@ -9,22 +9,28 @@ class Korisnik{
         //("select korisnickoime,ime,prezime,email,telefon from korisnik order by korisnickoime");
         ("
                 select 
-                a.sifra,
-                a.korisnickoime,
-                a.ime,
-                a.prezime,
-                a.email,
-                a.telefon,
-                count(b.sifra) as ukupno from 
-                korisnik a left join oglas b on a.sifra=b.korisnik
-                group by 
-                a.sifra,
-                a.korisnickoime,
-                a.ime,
-                a.prezime,
-                a.email,
-                a.telefon
-                order by a.korisnickoime
+                    a.sifra,
+                    a.korisnickoime,
+                    a.datumreg,
+                    a.ime,
+                    a.prezime,
+                    a.email,
+                    a.telefon,                    
+                    a.datumrodenja,
+                    a.omeni,
+                    count(b.sifra) as ukupno from 
+                    korisnik a left join oglas b on a.sifra=b.korisnik
+                    group by 
+                    a.sifra,
+                    a.korisnickoime,
+                    a.datumreg,
+                    a.ime,
+                    a.prezime,
+                    a.email,
+                    a.telefon,
+                    a.datumrodenja,
+                    a.omeni
+                    order by a.korisnickoime
 
         ");
 

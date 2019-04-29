@@ -77,8 +77,12 @@ class OglasController extends ProtectedController
   
     function edit($id)
     {
-        
         $_POST["sifra"]=$id;
+        //echo __DIR__;
+        $datoteka = APP::config("path") . "public/img/oglasi/" . $id . ".png"; 
+        move_uploaded_file($_FILES["slika"]["tmp_name"],$datoteka);
+       // print_r($_FILES);
+        
         $kontrola = $this->kontrola();
         if($kontrola===true){
             Oglas::update($id);

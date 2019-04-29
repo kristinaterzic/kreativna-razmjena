@@ -1,0 +1,24 @@
+<div class="columns medium-5">
+    <h3 class="work-feature-block-header"></h3>    
+    <h4>Uredi profil   <a href="<?php echo App::config("url") ?>korisnik/prepareedit/<?php echo $profili->sifra ?>"><i class="fas fa-edit fa-2x"></i></a></h4>
+    <h4>Detalji</h4>
+    <ul>
+        <li>Korisničko ime: <?php echo $profili->korisnickoime ?></li>
+        <li>Datum registracije: <?php echo date("d.m.Y.",strtotime($profili->datumreg))?></li>
+        <li>Telefon: <?php echo $profili->telefon ?></li>
+        <li>Email: <?php echo $profili->email ?></li>        
+    </ul>
+<div class="callout primary">
+  <h4>O meni:</h4>
+  <p><?php echo $profili->omeni ?></p>
+  
+</div>
+    <div class="work-feature-block row">
+        <div class="columns medium-7">
+            <img class="work-feature-block-image" src="/public/img/korisnici/<?php echo $profili->sifra ?>.png" />
+        </div>
+        
+    </div>
+</div>
+
+

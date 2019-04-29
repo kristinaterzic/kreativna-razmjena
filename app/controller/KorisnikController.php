@@ -5,7 +5,8 @@ class KorisnikController extends ProtectedController
  
     function add()
     {
-        
+        $datoteka = APP::config("path") . "public/img/korisnici/" . $id . ".png"; 
+        move_uploaded_file($_FILES["slika"]["tmp_name"],$datoteka);
         $kontrola = $this->kontrola();
         if($kontrola===true){
             Korisnik::add();
@@ -26,6 +27,10 @@ class KorisnikController extends ProtectedController
     function edit($id)
     {
         $_POST["sifra"]=$id;
+         //echo __DIR__;
+         $datoteka = APP::config("path") . "public/img/korisnici/" . $id . ".png"; 
+         move_uploaded_file($_FILES["slika"]["tmp_name"],$datoteka);
+        // print_r($_FILES);
         $kontrola = $this->kontrola();
         if($kontrola===true){
             Korisnik::update($id);
@@ -65,7 +70,7 @@ class KorisnikController extends ProtectedController
         if($ukupno>0){
             return "Korisničko ime postoji, odaberite drugo korisničko ime.";
         }
-            //private function?
+            
         if(!Utillity::checkOib(Request::post("oib"))){
             return "OIB nije u dobrom formatu";
         }
@@ -88,9 +93,9 @@ class KorisnikController extends ProtectedController
             return "Lozinka je obavezna.";
         }
 
-        if(strlen(Request::post("lozinka"))<8){
+        /* if(strlen(Request::post("lozinka"))<8){
             return "Lozinka mora imati minimalno 8 znakova.";
-        }
+        } */
 
         return true;
     }

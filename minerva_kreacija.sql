@@ -46,10 +46,6 @@ oglas						int,
 javljamse_korisnik			int
 );
 
-create table kategorija_oglas(
-kategorija					int,
-oglas						int
-);
 
 alter table oglas add foreign key (korisnik) references korisnik(sifra);
 alter table oglas add foreign key (kategorija) references kategorija(sifra);
@@ -57,10 +53,6 @@ alter table oglas add foreign key (javljamse_korisnik) references korisnik(sifra
 
 alter table ocjena add foreign key (oglas) references oglas(sifra);
 alter table ocjena add foreign key (javljamse_korisnik) references korisnik(sifra);
-
-alter table kategorija_oglas add foreign key (kategorija) references kategorija(sifra);
-alter table kategorija_oglas add foreign key (oglas) references oglas(sifra);
-
 
 insert into korisnik 
 (sifra,uloga,korisnickoime,datumreg,ime,prezime,email,telefon,lozinka,oib,datumrodenja,omeni,profilnaslika) values
@@ -167,7 +159,6 @@ insert into korisnik
 (null,NULL,'prutherford','1973-10-11 16:25:33','Aletha','Feil','zsatterfield@example.com','+385452993672','$2y$10$EoDbIjVh0nP4FrXewYTBjuvSIlFeXxPviXK2QVs51XOOmnwZpmHau','87280028976','1983-03-29','Deleniti cupiditate cumque a in dolorem fuga. Dolore amet voluptates ut quos aut ipsam. Dicta tenetur sed iure corporis aut. Minima hic recusandae recusandae asperiores.',NULL);
 
 
-
 insert into kategorija (sifra,naziv,ikona) values
 (null,'Fotografija','camera'),
 (null,'Slikanje, crtanje','palette'),
@@ -181,6 +172,7 @@ insert into kategorija (sifra,naziv,ikona) values
 (null,'Kućne dekoracije','couch'),
 (null,'Izrada poklona','gift'),
 (null,'Ostalo','ellipsis-h');
+
 
 insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponude,kategorija,javljamse_korisnik) values
 (null,'2019-04-14 09:50:30',NULL,1,'ponuda','Web dizajn','Želite osvježiti svoju stranicu novim i jedinstvenim dizajnom? Došli ste na pravo mjesto! Pogledajte primjere mojih radova u galeriji.',4,NULL),
@@ -268,93 +260,6 @@ insert into oglas (sifra,pocetnidatum,datumisteka,korisnik,vrsta,naziv,tekstponu
 (null,'2019-04-22 00:00:00','2019-05-22',83,'ponuda','Unikatna keramika','Pogledajte našu veliku ponudu unikatne keramike za dekoraciju doma. Šaljemo po cijeloj Hrvatskoj.',10,NULL);
 
 
-/* insert into kategorija_oglas (kategorija,oglas) values
-(1,12),
-(1,13),
-(1,21),
-(1,22),
-(1,23),
-(1,24),
-(1,25),
-(1,26),
-(1,27),
-(1,28),
-(1,29),
-(1,30),
-(1,31),
-(1,32),
-(1,33),
-(1,34),
-(1,35),
-(1,36),
-(1,37),
-(1,38),
-(2,2),
-(2,3),
-(2,4),
-(2,5),
-(2,6),
-(2,7),
-(2,8),
-(2,9),
-(2,10),
-(2,11),
-(3,14),
-(3,39),
-(3,40),
-(3,41),
-(3,42),
-(3,43),
-(3,44),
-(3,45),
-(3,46),
-(3,47),
-(4,1),
-(4,15),
-(4,48),
-(4,49),
-(4,50),
-(4,51),
-(4,52),
-(4,53),
-(4,54),
-(4,55),
-(5,16),
-(5,56),
-(5,57),
-(5,58),
-(5,59),
-(5,60),
-(5,61),
-(5,62),
-(5,63),
-(5,64),
-(6,17),
-(6,65),
-(6,66),
-(6,67),
-(6,68),
-(6,69),
-(6,70),
-(6,71),
-(6,72),
-(6,73),
-(7,18),
-(7,74),
-(7,75),
-(7,76),
-(7,77),
-(8,19),
-(9,20),
-(9,80),
-(9,81),
-(9,82),
-(10,78),
-(10,83),
-(11,79),
-(12,NULL); */
-
-
 insert into ocjena (sifra,datumocjene,ocjena,oglas,javljamse_korisnik) values
 (null,'2018-11-16 09:25:04',5,1,3),
 (null,'2018-11-17 10:45:04',4,1,2),
@@ -385,7 +290,6 @@ insert into ocjena (sifra,datumocjene,ocjena,oglas,javljamse_korisnik) values
 (null,'2019-04-05 09:50:30',1,2,31),
 (null,'2019-04-05 09:50:30',2,2,32);
 
-
 create table operater(
 	sifra int not null primary key auto_increment,
 	ime varchar(50) not null,
@@ -406,5 +310,3 @@ insert into operater (ime,prezime,email,lozinka) values
 
 
 select 'Gotov sam';
-
-

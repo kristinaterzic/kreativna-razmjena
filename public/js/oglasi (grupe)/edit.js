@@ -9,7 +9,7 @@
       spremi(ui.item);
     }
   }).data("ui-autocomplete")._renderItem=function(ul,objekt){
-      return $("<li><img style=\"max-width: 60px\" src=\"" + putanja +"public/img/polaznici/" + objekt.sifra + ".png\" />" + objekt.ime + " " + objekt.prezime + "</li>").appendTo(ul);
+      return $("<li><img style=\"max-width: 60px\" src=\"" + putanja +"public/img/oglasi/" + objekt.sifra + ".png\" />" + objekt.ime + " " + objekt.prezime + "</li>").appendTo(ul);
   };
 
   function spremi(polaznik){

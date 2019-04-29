@@ -1,4 +1,4 @@
-<form class="log-in-form" method="post"
+<form class="log-in-form" method="post" enctype="multipart/form-data"
     action="<?php echo App::config("url") ?>oglas/novi/<?php echo Request::post("sifra") ?>">
            
     <label>Datum objavljivanja oglasa
@@ -36,7 +36,10 @@
             <label>  Tekst oglasa
                 <input type="text" name="tekstponude" value="<?php echo Request::post("tekstponude") ?>" /> 
             </label>
-
+            
+            <label>Slika
+                 <input type="file" name="slika"  />
+            </label>
 
 
     <div class="grid-x">

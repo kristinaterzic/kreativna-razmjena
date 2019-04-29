@@ -65,31 +65,11 @@ class OcjenaController extends ProtectedController
         }
     }
     function kontrola()
-    {
-        /* if(Request::post("kategorija")=="0"){
-            return "Obavezno odaberite kategoriju oglasa.";
-        }
-
-        if(Request::post("vrsta")=="0"){
-            return "Obavezno odaberite vrstu oglasa.";
-        }
-
-        if(Request::post("naziv")===""){
-            return "Naslov oglasa je obavezan.";
-        }
-
-        if(strlen(Request::post("naziv"))>100){
-            return "Naslov ne smije biti veći od 100 znakova";
-        }
-
-        if(Request::post("tekstponude")===""){
-            return "Tekst oglasa je obavezan.";
+    {       
+        if(Request::post("ocjena")=="0"){
+            return "Obavezno odaberite broj ocjene.";
         }
         
-        if(strlen(Request::post("tekstponude"))>255){
-            return "Tekst oglasa ne smije biti veći od 255 znakova";
-        } */
-
         return true;
     }
 

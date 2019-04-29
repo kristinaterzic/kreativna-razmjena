@@ -1,4 +1,4 @@
-<form class="log-in-form" method="post" 
+<form class="log-in-form" method="post" enctype="multipart/form-data" 
 action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("sifra") ?>">
 
  <?php include_once "kontrole.phtml" ?>

@@ -1,7 +1,7 @@
 <br />
 <form  method="post" action="<?php echo App::config("url") ?>pocetna/search">
     <input type="search" name="search" value="<?php echo $_POST["search"] ?>" />
-    <input class="button" type="submit" value="Search" />
+    <input class="button" type="submit" value="Pretraži!" />
 </form>
 
 
@@ -19,7 +19,7 @@
     </ul>
     <div class="work-feature-block row">
         <div class="columns medium-7">
-            <img class="work-feature-block-image" src="/public/img/<?php echo $rezultati->sifra ?>.png" />
+            <img class="work-feature-block-image" src="/public/img/oglasi/<?php echo $rezultati->sifra ?>.png" />
         </div>
         <div>
             <br />
