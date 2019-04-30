@@ -1,11 +1,3 @@
-<?php 
-//echo password_hash("k",PASSWORD_DEFAULT);
-//echo $poruka;
-?>
-
-<br />
-
-
 <form  method="post" action="<?php echo App::config("url") ?>pocetna/search">
     <input type="search" name="search" value="<?php echo $_POST["search"]?>" placeholder="Pretražite oglasnik" />
     <input class="button" type="submit" value="Pretraži!" />

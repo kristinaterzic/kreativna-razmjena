@@ -30,11 +30,7 @@ class AdminController
                 $user->imePrezime=$red->ime . " " . $red->prezime;
 
                 Session::getInstance()->login($user);
-
-                
-               // $view->render('nadzornaPloca',["poruka"=>"Usmješno prijavljen"]);
-               /* $npc = new NadzornaPlocaController();
-               $npc->index(); */
+               
 
                 $view->render('index',["poruka"=>"Uspješno ste se prijavili"]);
             }else{
@@ -57,23 +53,4 @@ class AdminController
 
 
     
-    // guidelines za register
- /*    function register(){
-        $password = Request::post("password");
-        $email = Request::post("email");
-        $ime = Request::post("ime");
-        $prezime = Request::post("prezime");
-
-        // validacija
-        if($password == null || $email == null || $ime == null || $prezime == null)
-            return 0;
-
-        $password = password_hash($password,PASSWORD_BCRYPT); // hashing
-
-        $db=Db::getInstance();
-        $izraz = $db->prepare("insert into operater (lozinka,ime,prezime,email)
-         values ($password,$ime,$prezime,$email)");
-        $izraz->execute();
-
-    } */
 }

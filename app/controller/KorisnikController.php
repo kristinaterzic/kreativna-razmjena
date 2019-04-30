@@ -74,28 +74,11 @@ class KorisnikController extends ProtectedController
         if(!Utillity::checkOib(Request::post("oib"))){
             return "OIB nije u dobrom formatu";
         }
-        return true;
-    
-            
-        /* if(Request::post("ime")===""){
-            return "Ime je obavezno.";
-        }
-
-        if(Request::post("prezime")===""){
-            return "Prezime je obavezno";
-        }
-
-        if(Request::post("telefon")===""){
-            return "Telefon je obavezan.";
-        } */
+        return true;            
 
         if(Request::post("lozinka")===""){
             return "Lozinka je obavezna.";
         }
-
-        /* if(strlen(Request::post("lozinka"))<8){
-            return "Lozinka mora imati minimalno 8 znakova.";
-        } */
 
         return true;
     }

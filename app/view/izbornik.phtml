@@ -15,9 +15,11 @@
                     <li>
                         <a href="<?php echo App::config("url")."onama" ?>">O nama</a>
                     </li>
+                    <?php if(Session::getInstance()->isLogiran()): ?>
                     <li>
                         <a href="<?php echo App::config("url")."operater/index" ?>">Operateri</a>
                     </li>
+                    <?php endif; ?>
                     <li>
                         <a href="<?php echo App::config("url")."kontakt" ?>">Kontakt</a>
                     </li>

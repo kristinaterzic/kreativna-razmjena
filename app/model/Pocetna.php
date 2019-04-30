@@ -81,10 +81,10 @@ class Pocetna{
     return $izraz->fetchAll();
     }
  
-                            //,$stranica=1
+                            
     public static function selekcija($id)
     { 
-        //$poStranici=4;
+        
         $db=Db::getInstance();
         $izraz = $db->prepare("
         select  a.sifra,
@@ -103,7 +103,7 @@ class Pocetna{
                 order by pocetnidatum DESC
                 
         
-        ");     //limit " . (($stranica*$poStranici) - $poStranici)  . ",$poStranici                           
+        ");                            
        
         $izraz->execute(["sifra"=>$id]);            
         return $izraz->fetchAll();        

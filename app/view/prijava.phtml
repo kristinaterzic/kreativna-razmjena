@@ -3,10 +3,20 @@ action="<?php echo App::config("url") ?>admin/login">
 
   <label>Email
     <input type="email" name="email" placeholder="kristina.terzic01@gmail.com"
-    value="<?php echo Request::post("email") ?>">
+    value="<?php 
+    if (isset($_POST[email])){
+      echo Request::post("email");
+    }else{
+      echo App::config("dev") ? "kristina.terzic01@gmail.com" : "";
+    }
+     ?>">
   </label>
   <label>Password
-    <input type="password" name="password" placeholder="k">
+    <input type="password" name="password" placeholder="k" value="<?php 
+    if (!isset($_POST[email])){
+      echo App::config("dev") ? "k" : "";
+    }
+    ?>">
   </label>
  
   <p><input type="submit" class="button expanded" value="Prijavite se" /></p>

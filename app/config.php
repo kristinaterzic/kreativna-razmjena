@@ -2,8 +2,11 @@
 
 return [
     "url"=>"http://polaznik42.edunova.hr/",
+    "path"=>"E:/vhost/polaznik42.edunova.hr/",
     "dev"=>true,
     "nazivApp" => "Kreativna razmjena",
+
+
     "db"=> [
         "host"=>"localhost",
         "name"=>"minerva_kreacija",

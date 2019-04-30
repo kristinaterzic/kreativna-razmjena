@@ -38,7 +38,7 @@ class Oglas{
         $izraz->execute($podaci);
     }
 
-    // maknila sam korisnik=:korisnik,
+    
     public static function update($id)
     {
         $db = Db::getInstance();

@@ -3,10 +3,8 @@
 class Korisnik{
 
     public static function read(){
-        $db = Db::getInstance();
-        //$izraz = $db->prepare("select * from korisnik");
+        $db = Db::getInstance();        
         $izraz = $db->prepare
-        //("select korisnickoime,ime,prezime,email,telefon from korisnik order by korisnickoime");
         ("
                 select 
                     a.sifra,
