@@ -1,6 +1,8 @@
 <?php
                        
 class Ocjena{
+
+
     public static function delete($id)
     {
         $db = Db::getInstance();
@@ -8,6 +10,7 @@ class Ocjena{
         $podaci = [];
         $podaci["sifra"]=$id;
         $izraz->execute($podaci);
+
     }
         
     public static function update($id)
@@ -16,18 +19,21 @@ class Ocjena{
         $izraz = $db->prepare("update ocjena set 
         datumocjene=:datumocjene,
         ocjena=:ocjena,                       
-        javljamse_korisnik=:javljamse_korisnik,
+        javljamse_korisnik=:javljamse_korisnik
         where sifra=:sifra");
+
         if(Request::post("datumocjene")==""){
             $izraz->bindValue("datumocjene",null,PDO::PARAM_NULL);
         }else{
             $izraz->bindParam("datumocjene",Request::post("datumocjene"),PDO::PARAM_STR);
         }       
         $izraz->bindParam("ocjena",Request::post("ocjena"),PDO::PARAM_INT);
-        $izraz->bindParam("javljamse_korisnik",Request::post("javljamse_korisnik"),PDO::PARAM_INT);
+        $izraz->bindParam("javljamse_korisnik",Session::getInstance()->getUser()->id,PDO::PARAM_INT);
         $izraz->bindParam("sifra",$id,PDO::PARAM_INT);
+
         $izraz->execute();
     }
+
     public static function trazi($id)
     {
         $db = Db::getInstance();
@@ -35,6 +41,8 @@ class Ocjena{
         $izraz->execute(["sifra"=>$id]);
         return $izraz->fetch();
     }
+
+
     public static function unos($sifraoglasa)
     {
         $db = Db::getInstance();
@@ -45,10 +53,13 @@ class Ocjena{
         $izraz->execute(["oglas"=>$sifraoglasa]);
         return $db->lastInsertId();
     }
+
     public static function find()
     {
         $db = Db::getInstance();
         $izraz = $db->prepare("
+
+
         select 	a.sifra,
 		        a.datumocjene,
                 a.ocjena,
@@ -60,6 +71,7 @@ class Ocjena{
                 left join korisnik b on a.javljamse_korisnik =b.sifra
                 left join oglas c on a.oglas =c.sifra        
                 group by a.sifra,a.datumocjene,a.ocjena,b.korisnickoime,c.sifra,concat(c.naziv, '; ',c.tekstponude)
+
                 ");
                 $izraz->execute();
                 return $izraz->fetchAll();
